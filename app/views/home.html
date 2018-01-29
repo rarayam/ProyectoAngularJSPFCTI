@@ -1,0 +1,31 @@
+﻿<h1>Home</h1>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Nombre completo</th>
+            <th>Edad</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="user in usersHome">
+            <td ng-bind="user.NombreCompleto"></td>
+            <td ng-bind="user.Edad"></td>
+        </tr>
+    </tbody>
+
+    <br/>
+
+    <thead>
+        <tr>
+            <th>Nombre completo</th>
+            <th>Edad</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="user1 in users">
+            <td ng-bind="(user1.Nombre) + ' ' + (user1.Apellido)"></td>
+            <td ng-bind="user1.Edad"></td>
+        </tr>
+    </tbody>
+</table>
