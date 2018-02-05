@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AssetsManagerModel.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="12.1" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ASSETBYUSER">
+    <Key>
+      <PropertyRef Name="USERNAME" />
+      <PropertyRef Name="ASSETNUMBER" />
+      <PropertyRef Name="ASSETIP" />
+    </Key>
+    <Property Name="USERCOMPNAME" Type="varchar2" MaxLength="100" Nullable="false" />
+    <Property Name="USERNAME" Type="varchar2" MaxLength="30" Nullable="false" />
+    <Property Name="USERPERSONALID" Type="varchar2" MaxLength="15" Nullable="false" />
+    <Property Name="USERSERVICEUNIT" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="ASSETNUMBER" Type="varchar2" MaxLength="10" Nullable="false" />
+    <Property Name="ASSETIP" Type="varchar2" MaxLength="15" Nullable="false" />
+    <Property Name="ADDDATE" Type="timestamp" Precision="6" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ASSETMOVEMENT">
+    <Key>
+      <PropertyRef Name="MOVEMENTID" />
+    </Key>
+    <Property Name="MOVEMENTID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ASSETNUMBER" Type="varchar2" MaxLength="10" Nullable="false" />
+    <Property Name="ASSETIP" Type="varchar2" MaxLength="15" Nullable="false" />
+    <Property Name="USERNAME" Type="varchar2" MaxLength="30" Nullable="false" />
+    <Property Name="MOVEMENTTYPE" Type="varchar2" MaxLength="3" Nullable="false" />
+    <Property Name="ACCESORIESDETAIL" Type="varchar2" MaxLength="50" />
+    <Property Name="MOVEMENTREASON" Type="varchar2" MaxLength="200" />
+    <Property Name="MOVEMENTDATE" Type="timestamp" Precision="6" Nullable="false" />
+  </EntityType>
+  <Association Name="ASSETMOVEMENT_ASSETBYUSER_FK1">
+    <End Role="ASSETBYUSER" Type="Self.ASSETBYUSER" Multiplicity="1" />
+    <End Role="ASSETMOVEMENT" Type="Self.ASSETMOVEMENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ASSETBYUSER">
+        <PropertyRef Name="ASSETNUMBER" />
+        <PropertyRef Name="ASSETIP" />
+        <PropertyRef Name="USERNAME" />
+      </Principal>
+      <Dependent Role="ASSETMOVEMENT">
+        <PropertyRef Name="ASSETNUMBER" />
+        <PropertyRef Name="ASSETIP" />
+        <PropertyRef Name="USERNAME" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AssetsManagerModelStoreContainer">
+    <EntitySet Name="ASSETBYUSER" EntityType="Self.ASSETBYUSER" Schema="AM" store:Type="Tables" />
+    <EntitySet Name="ASSETMOVEMENT" EntityType="Self.ASSETMOVEMENT" Schema="AM" store:Type="Tables" />
+    <AssociationSet Name="ASSETMOVEMENT_ASSETBYUSER_FK1" Association="Self.ASSETMOVEMENT_ASSETBYUSER_FK1">
+      <End Role="ASSETBYUSER" EntitySet="ASSETBYUSER" />
+      <End Role="ASSETMOVEMENT" EntitySet="ASSETMOVEMENT" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

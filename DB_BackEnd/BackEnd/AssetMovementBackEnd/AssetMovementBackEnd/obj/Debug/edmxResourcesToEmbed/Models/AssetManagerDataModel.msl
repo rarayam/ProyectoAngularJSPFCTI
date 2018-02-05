@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AssetsManagerModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="ASSETBYUSERs">
+      <EntityTypeMapping TypeName="AssetsManagerModel.ASSETBYUSER">
+        <MappingFragment StoreEntitySet="ASSETBYUSER">
+          <ScalarProperty Name="USERCOMPNAME" ColumnName="USERCOMPNAME" />
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+          <ScalarProperty Name="USERPERSONALID" ColumnName="USERPERSONALID" />
+          <ScalarProperty Name="USERSERVICEUNIT" ColumnName="USERSERVICEUNIT" />
+          <ScalarProperty Name="ASSETNUMBER" ColumnName="ASSETNUMBER" />
+          <ScalarProperty Name="ASSETIP" ColumnName="ASSETIP" />
+          <ScalarProperty Name="ADDDATE" ColumnName="ADDDATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ASSETMOVEMENTs">
+      <EntityTypeMapping TypeName="AssetsManagerModel.ASSETMOVEMENT">
+        <MappingFragment StoreEntitySet="ASSETMOVEMENT">
+          <ScalarProperty Name="MOVEMENTID" ColumnName="MOVEMENTID" />
+          <ScalarProperty Name="ASSETNUMBER" ColumnName="ASSETNUMBER" />
+          <ScalarProperty Name="ASSETIP" ColumnName="ASSETIP" />
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+          <ScalarProperty Name="MOVEMENTTYPE" ColumnName="MOVEMENTTYPE" />
+          <ScalarProperty Name="ACCESORIESDETAIL" ColumnName="ACCESORIESDETAIL" />
+          <ScalarProperty Name="MOVEMENTREASON" ColumnName="MOVEMENTREASON" />
+          <ScalarProperty Name="MOVEMENTDATE" ColumnName="MOVEMENTDATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

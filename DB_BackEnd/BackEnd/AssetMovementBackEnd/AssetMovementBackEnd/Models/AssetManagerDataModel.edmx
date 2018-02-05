@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AssetsManagerModel.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="12.1" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ASSETBYUSER">
+          <Key>
+            <PropertyRef Name="USERNAME" />
+            <PropertyRef Name="ASSETNUMBER" />
+            <PropertyRef Name="ASSETIP" />
+          </Key>
+          <Property Name="USERCOMPNAME" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="USERNAME" Type="varchar2" MaxLength="30" Nullable="false" />
+          <Property Name="USERPERSONALID" Type="varchar2" MaxLength="15" Nullable="false" />
+          <Property Name="USERSERVICEUNIT" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="ASSETNUMBER" Type="varchar2" MaxLength="10" Nullable="false" />
+          <Property Name="ASSETIP" Type="varchar2" MaxLength="15" Nullable="false" />
+          <Property Name="ADDDATE" Type="timestamp" Precision="6" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ASSETMOVEMENT">
+          <Key>
+            <PropertyRef Name="MOVEMENTID" />
+          </Key>
+          <Property Name="MOVEMENTID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ASSETNUMBER" Type="varchar2" MaxLength="10" Nullable="false" />
+          <Property Name="ASSETIP" Type="varchar2" MaxLength="15" Nullable="false" />
+          <Property Name="USERNAME" Type="varchar2" MaxLength="30" Nullable="false" />
+          <Property Name="MOVEMENTTYPE" Type="varchar2" MaxLength="3" Nullable="false" />
+          <Property Name="ACCESORIESDETAIL" Type="varchar2" MaxLength="50" />
+          <Property Name="MOVEMENTREASON" Type="varchar2" MaxLength="200" />
+          <Property Name="MOVEMENTDATE" Type="timestamp" Precision="6" Nullable="false" />
+        </EntityType>
+        <Association Name="ASSETMOVEMENT_ASSETBYUSER_FK1">
+          <End Role="ASSETBYUSER" Type="Self.ASSETBYUSER" Multiplicity="1" />
+          <End Role="ASSETMOVEMENT" Type="Self.ASSETMOVEMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ASSETBYUSER">
+              <PropertyRef Name="ASSETNUMBER" />
+              <PropertyRef Name="ASSETIP" />
+              <PropertyRef Name="USERNAME" />
+            </Principal>
+            <Dependent Role="ASSETMOVEMENT">
+              <PropertyRef Name="ASSETNUMBER" />
+              <PropertyRef Name="ASSETIP" />
+              <PropertyRef Name="USERNAME" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AssetsManagerModelStoreContainer">
+          <EntitySet Name="ASSETBYUSER" EntityType="Self.ASSETBYUSER" Schema="AM" store:Type="Tables" />
+          <EntitySet Name="ASSETMOVEMENT" EntityType="Self.ASSETMOVEMENT" Schema="AM" store:Type="Tables" />
+          <AssociationSet Name="ASSETMOVEMENT_ASSETBYUSER_FK1" Association="Self.ASSETMOVEMENT_ASSETBYUSER_FK1">
+            <End Role="ASSETBYUSER" EntitySet="ASSETBYUSER" />
+            <End Role="ASSETMOVEMENT" EntitySet="ASSETMOVEMENT" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AssetsManagerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ASSETBYUSER">
+          <Key>
+            <PropertyRef Name="USERNAME" />
+            <PropertyRef Name="ASSETNUMBER" />
+            <PropertyRef Name="ASSETIP" />
+          </Key>
+          <Property Name="USERCOMPNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="USERNAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="USERPERSONALID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="USERSERVICEUNIT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ASSETNUMBER" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ASSETIP" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ADDDATE" Type="DateTime" Precision="6" Nullable="false" />
+          <NavigationProperty Name="ASSETMOVEMENTs" Relationship="Self.ASSETMOVEMENT_ASSETBYUSER_FK1" FromRole="ASSETBYUSER" ToRole="ASSETMOVEMENT" />
+        </EntityType>
+        <EntityType Name="ASSETMOVEMENT">
+          <Key>
+            <PropertyRef Name="MOVEMENTID" />
+          </Key>
+          <Property Name="MOVEMENTID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ASSETNUMBER" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ASSETIP" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="USERNAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MOVEMENTTYPE" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ACCESORIESDETAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MOVEMENTREASON" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="MOVEMENTDATE" Type="DateTime" Precision="6" Nullable="false" />
+          <NavigationProperty Name="ASSETBYUSER" Relationship="Self.ASSETMOVEMENT_ASSETBYUSER_FK1" FromRole="ASSETMOVEMENT" ToRole="ASSETBYUSER" />
+        </EntityType>
+        <Association Name="ASSETMOVEMENT_ASSETBYUSER_FK1">
+          <End Role="ASSETBYUSER" Type="Self.ASSETBYUSER" Multiplicity="1" />
+          <End Role="ASSETMOVEMENT" Type="Self.ASSETMOVEMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ASSETBYUSER">
+              <PropertyRef Name="ASSETNUMBER" />
+              <PropertyRef Name="ASSETIP" />
+              <PropertyRef Name="USERNAME" />
+            </Principal>
+            <Dependent Role="ASSETMOVEMENT">
+              <PropertyRef Name="ASSETNUMBER" />
+              <PropertyRef Name="ASSETIP" />
+              <PropertyRef Name="USERNAME" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ASSETBYUSERs" EntityType="Self.ASSETBYUSER" />
+          <EntitySet Name="ASSETMOVEMENTs" EntityType="Self.ASSETMOVEMENT" />
+          <AssociationSet Name="ASSETMOVEMENT_ASSETBYUSER_FK1" Association="Self.ASSETMOVEMENT_ASSETBYUSER_FK1">
+            <End Role="ASSETBYUSER" EntitySet="ASSETBYUSERs" />
+            <End Role="ASSETMOVEMENT" EntitySet="ASSETMOVEMENTs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AssetsManagerModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="ASSETBYUSERs">
+            <EntityTypeMapping TypeName="AssetsManagerModel.ASSETBYUSER">
+              <MappingFragment StoreEntitySet="ASSETBYUSER">
+                <ScalarProperty Name="USERCOMPNAME" ColumnName="USERCOMPNAME" />
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="USERPERSONALID" ColumnName="USERPERSONALID" />
+                <ScalarProperty Name="USERSERVICEUNIT" ColumnName="USERSERVICEUNIT" />
+                <ScalarProperty Name="ASSETNUMBER" ColumnName="ASSETNUMBER" />
+                <ScalarProperty Name="ASSETIP" ColumnName="ASSETIP" />
+                <ScalarProperty Name="ADDDATE" ColumnName="ADDDATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ASSETMOVEMENTs">
+            <EntityTypeMapping TypeName="AssetsManagerModel.ASSETMOVEMENT">
+              <MappingFragment StoreEntitySet="ASSETMOVEMENT">
+                <ScalarProperty Name="MOVEMENTID" ColumnName="MOVEMENTID" />
+                <ScalarProperty Name="ASSETNUMBER" ColumnName="ASSETNUMBER" />
+                <ScalarProperty Name="ASSETIP" ColumnName="ASSETIP" />
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="MOVEMENTTYPE" ColumnName="MOVEMENTTYPE" />
+                <ScalarProperty Name="ACCESORIESDETAIL" ColumnName="ACCESORIESDETAIL" />
+                <ScalarProperty Name="MOVEMENTREASON" ColumnName="MOVEMENTREASON" />
+                <ScalarProperty Name="MOVEMENTDATE" ColumnName="MOVEMENTDATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
