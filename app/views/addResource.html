@@ -1,29 +1,32 @@
-﻿<h1> Usuarios </h1>
+﻿<h1> PFCTI Activos </h1>
 <div class="form-group">
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Add User
+        Asignar Activo
     </button>
 </div>
 <table class="table table-bordered table-striped">
     <thead>
         <tr>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Teléfono</th>
-            <th>Edad</th>
+            <th>Nombre completo</th>
+            <th>Cédula</th>
+            <th>IP</th>
+            <th>Unidad de Servicio</th>
+            <th>Número de activo</th>
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="user in Employee">
-            <td ng-bind="user.Nombre"></td>
-            <td ng-bind="user.Apellido"></td>
-            <td ng-bind="user.Telefono"></td>
-            <td ng-bind="user.Edad"></td>
+        <tr ng-repeat="Employee in EmployeeCollection">
+            <td ng-bind="Employee.Name"></td>
+            <td ng-bind="Employee.Id"></td>
+            <td ng-bind="Employee.IP"></td>
+            <td ng-bind="Employee.ServiceUnit"></td>
+            <td ng-bind="Employee.ResourceId"></td>
             <td>
-                <button  type="button" class="btn btn-outline-danger btn-sm" ng-click="remove(user.id)">Eliminar</button>
+                <button  type="button" class="btn btn-outline-danger btn-sm" ng-click="Remove(Employee.Id,Resource.Id)">Eliminar</button>
             </td>
         </tr>
     </tbody>
+
 </table>
 
 
@@ -31,7 +34,7 @@
     <div class="modal-dialog" role="document">
         <form class="modal-content" novalidate>
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Agregar usuario</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Agregar Activo</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -39,24 +42,28 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label>Nombre</label>
-                    <input type="text" class="form-control" ng-model="user.Nombre">
+                    <input type="text" class="form-control" ng-model="Employee.Name">
                 </div>
                 <div class="form-group">
-                    <label>Apellido</label>
-                    <input type="text" class="form-control" ng-model="user.Apellido">
+                    <label>Id</label>
+                    <input type="text" class="form-control" ng-model="Employee.Id">
                 </div>
                 <div class="form-group">
-                    <label>Telefono</label>
-                    <input type="number" class="form-control" ng-model="user.Telefono">
+                    <label>IP</label>
+                    <input type="text" class="form-control" ng-model="Employee.IP">
                 </div>
                 <div class="form-group">
-                    <label>Edad</label>
-                    <input type="number" class="form-control" ng-model="user.Edad">
+                    <label>Unidad de Servicio</label>
+                    <input type="text" class="form-control" ng-model="Employee.ServiceUnit">
+                </div>
+                <div class="form-group">
+                    <label>Número de serie</label>
+                    <input type="text" class="form-control" ng-model="Employee.ResourceId">
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" ng-click="save()">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" ng-click="save()">Salvar Cambios</button>
             </div>
         </form>
     </div>
