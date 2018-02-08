@@ -12,9 +12,9 @@
                         for (var i = 0; i < Resources.length; i++) {
                             var uEmployee = {
                                 Name: Resources[i].USERCOMPNAME,
-                                Id: Employee[i].USERPERSONALID,
+                                Id: Resources[i].USERPERSONALID,
                                 IP: Resources[i].ASSETIP,
-                                ServiceUnit: Employee[i].USERSERVICEUNIT,
+                                ServiceUnit: Resources[i].USERSERVICEUNIT,
                                 ResourceId: Resources[i].ASSETNUMBER
                             };
                             $scope.EmployeeCollection.push(uEmployee);
