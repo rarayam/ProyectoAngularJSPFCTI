@@ -12,21 +12,21 @@ using AssetMovementBackEnd.Models;
 
 namespace AssetMovementBackEnd.Controllers
 {
-    public class ASSETBYEmployeeController : ApiController
+    public class ASSETBYUSERsController : ApiController
     {
         private Entities db = new Entities();
 
-        // GET: api/ASSETBYEmployee
-        public IQueryable<ASSETBYUSER> GetASSETBYEmployee()
+        // GET: api/ASSETBYUSERs
+        public IQueryable<ASSETBYUSER> GetASSETBYUSERs()
         {
-            return db.ASSETBYEmployee;
+            return db.ASSETBYUSERs;
         }
 
-        // GET: api/ASSETBYEmployee/5
+        // GET: api/ASSETBYUSERs/5
         [ResponseType(typeof(ASSETBYUSER))]
         public IHttpActionResult GetASSETBYUSER(string id)
         {
-            ASSETBYUSER aSSETBYUSER = db.ASSETBYEmployee.Find(id);
+            ASSETBYUSER aSSETBYUSER = db.ASSETBYUSERs.Find(id);
             if (aSSETBYUSER == null)
             {
                 return NotFound();
@@ -35,7 +35,7 @@ namespace AssetMovementBackEnd.Controllers
             return Ok(aSSETBYUSER);
         }
 
-        // PUT: api/ASSETBYEmployee/5
+        // PUT: api/ASSETBYUSERs/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutASSETBYUSER(string id, ASSETBYUSER aSSETBYUSER)
         {
@@ -70,7 +70,7 @@ namespace AssetMovementBackEnd.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/ASSETBYEmployee
+        // POST: api/ASSETBYUSERs
         [ResponseType(typeof(ASSETBYUSER))]
         public IHttpActionResult PostASSETBYUSER(ASSETBYUSER aSSETBYUSER)
         {
@@ -79,7 +79,7 @@ namespace AssetMovementBackEnd.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.ASSETBYEmployee.Add(aSSETBYUSER);
+            db.ASSETBYUSERs.Add(aSSETBYUSER);
 
             try
             {
@@ -100,17 +100,17 @@ namespace AssetMovementBackEnd.Controllers
             return CreatedAtRoute("DefaultApi", new { id = aSSETBYUSER.USERNAME }, aSSETBYUSER);
         }
 
-        // DELETE: api/ASSETBYEmployee/5
+        // DELETE: api/ASSETBYUSERs/5
         [ResponseType(typeof(ASSETBYUSER))]
         public IHttpActionResult DeleteASSETBYUSER(string id)
         {
-            ASSETBYUSER aSSETBYUSER = db.ASSETBYEmployee.Find(id);
+            ASSETBYUSER aSSETBYUSER = db.ASSETBYUSERs.Find(id);
             if (aSSETBYUSER == null)
             {
                 return NotFound();
             }
 
-            db.ASSETBYEmployee.Remove(aSSETBYUSER);
+            db.ASSETBYUSERs.Remove(aSSETBYUSER);
             db.SaveChanges();
 
             return Ok(aSSETBYUSER);
@@ -127,7 +127,7 @@ namespace AssetMovementBackEnd.Controllers
 
         private bool ASSETBYUSERExists(string id)
         {
-            return db.ASSETBYEmployee.Count(e => e.USERNAME == id) > 0;
+            return db.ASSETBYUSERs.Count(e => e.USERNAME == id) > 0;
         }
     }
 }

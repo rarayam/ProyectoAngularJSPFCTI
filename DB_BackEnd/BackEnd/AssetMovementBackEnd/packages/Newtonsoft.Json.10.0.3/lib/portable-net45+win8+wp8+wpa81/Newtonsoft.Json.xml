@@ -8336,7 +8336,7 @@
         </member>
         <member name="P:Newtonsoft.Json.Schema.JsonSchema.Hidden">
             <summary>
-            Gets or sets whether the object is visible to Employee.
+            Gets or sets whether the object is visible to users.
             </summary>
         </member>
         <member name="P:Newtonsoft.Json.Schema.JsonSchema.Transient">
@@ -8815,7 +8815,7 @@
         </member>
         <member name="T:Newtonsoft.Json.SerializationBinder">
             <summary>
-            Allows Employee to control class loading and mandate what class to load.
+            Allows users to control class loading and mandate what class to load.
             </summary>
         </member>
         <member name="M:Newtonsoft.Json.SerializationBinder.BindToType(System.String,System.String)">
@@ -9273,7 +9273,7 @@
         </member>
         <member name="T:Newtonsoft.Json.Serialization.ISerializationBinder">
             <summary>
-            Allows Employee to control class loading and mandate what class to load.
+            Allows users to control class loading and mandate what class to load.
             </summary>
         </member>
         <member name="M:Newtonsoft.Json.Serialization.ISerializationBinder.BindToType(System.String,System.String)">

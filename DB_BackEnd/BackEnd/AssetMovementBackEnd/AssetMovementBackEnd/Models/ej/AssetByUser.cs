@@ -10,7 +10,7 @@ namespace AssetMovementBackEnd.Models
         public string UserCompName{get; set;}
         public string UserName { get; set; }
         public string UserPersonalId { get; set; }
-        public string EmployeeerviceUnit { get; set; }
+        public string UserServiceUnit { get; set; }
         public string AssetNumber { get; set; }
         public string AssetIP { get; set; }
         public DateTime AddDate { get; set; }

@@ -10354,7 +10354,7 @@
             by setting the operation result using <see cref="P:System.Data.Entity.Infrastructure.Interception.MutableInterceptionContext`1.Result"/>.
             </summary>
         </member>
-        <member name="P:System.Data.Entity.Infrastructure.Interception.MutableInterceptionContext`1.Employeetate">
+        <member name="P:System.Data.Entity.Infrastructure.Interception.MutableInterceptionContext`1.UserState">
             <summary>
             Gets or sets a value containing arbitrary user-specified state information associated with the operation.
             </summary>
@@ -11373,7 +11373,7 @@
             synchronous operations.
             </summary>
         </member>
-        <member name="P:System.Data.Entity.Infrastructure.Interception.MutableInterceptionContext.Employeetate">
+        <member name="P:System.Data.Entity.Infrastructure.Interception.MutableInterceptionContext.UserState">
             <summary>
             Gets or sets a value containing arbitrary user-specified state information associated with the operation.
             </summary>
@@ -11517,7 +11517,7 @@
             The value that will be assigned to the target property.
             </summary>
         </member>
-        <member name="P:System.Data.Entity.Infrastructure.Interception.PropertyInterceptionContext`1.Employeetate">
+        <member name="P:System.Data.Entity.Infrastructure.Interception.PropertyInterceptionContext`1.UserState">
             <summary>
             Gets or sets a value containing arbitrary user-specified state information associated with the operation.
             </summary>
@@ -11885,7 +11885,7 @@
             by setting the operation result using <see cref="P:System.Data.Entity.Infrastructure.Interception.DbCommandInterceptionContext`1.Result"/>.
             </summary>
         </member>
-        <member name="P:System.Data.Entity.Infrastructure.Interception.DbCommandInterceptionContext`1.Employeetate">
+        <member name="P:System.Data.Entity.Infrastructure.Interception.DbCommandInterceptionContext`1.UserState">
             <summary>
             Gets or sets a value containing arbitrary user-specified state information associated with the operation.
             </summary>
@@ -12021,7 +12021,7 @@
             the tree that will be used by Entity Framework.
             </summary>
         </member>
-        <member name="P:System.Data.Entity.Infrastructure.Interception.DbCommandTreeInterceptionContext.Employeetate">
+        <member name="P:System.Data.Entity.Infrastructure.Interception.DbCommandTreeInterceptionContext.UserState">
             <summary>
             Gets or sets a value containing arbitrary user-specified state information associated with the operation.
             </summary>
@@ -22286,7 +22286,7 @@
             --EndPropertyMap
             --ScalarPropertyMap
             This class represents the metadata for all association Type map elements in the
-            above example. Employee can access the table mapping fragments under the
+            above example. Users can access the table mapping fragments under the
             association type mapping through this class.
             </example>
         </member>
@@ -22740,7 +22740,7 @@
             --EndPropertyMap
             --ScalarPropertyMap
             This class represents the metadata for all entity Type map elements in the
-            above example. Employee can access the table mapping fragments under the
+            above example. Users can access the table mapping fragments under the
             entity type mapping through this class.
             </example>
         </member>
@@ -22857,7 +22857,7 @@
             --EndPropertyMap
             --ScalarPropertyMap ( CMemberMetadata-->SMemberMetadata )
             This class represents the metadata for all the mapping fragment elements in the
-            above example. Employee can access all the top level constructs of
+            above example. Users can access all the top level constructs of
             MappingFragment element like EntityKey map, Property Maps, Discriminator
             property through this mapping fragment class.
             </example>
@@ -27253,10 +27253,10 @@
         <member name="F:System.Data.Entity.Core.Objects.DataClasses.StructuralObject.EntityKeyPropertyName">
             <summary>
             Public constant name used for change tracking
-            Providing this definition allows Employee to use this constant instead of
+            Providing this definition allows users to use this constant instead of
             hard-coding the string. This helps to ensure the property name is correct
             and allows faster comparisons in places where we are looking for this specific string.
-            Employee can still use the case-sensitive string directly instead of the constant,
+            Users can still use the case-sensitive string directly instead of the constant,
             it will just be slightly slower on comparison.
             Including the dash (-) character around the name ensures that this will not conflict with
             a real data property, because -EntityKey- is not a valid identifier name
@@ -30007,9 +30007,9 @@
              The command is specified using the server's native query language, such as SQL.
             
              As with any API that accepts SQL it is important to parameterize any user input to protect against a SQL injection attack. You can include parameter place holders in the SQL query string and then supply parameter values as additional arguments. Any parameter values you supply will automatically be converted to a DbParameter.
-             context.ExecuteStoreCommand("UPDATE dbo.Posts SET Rating = 5 WHERE Author = @p0", EmployeeuppliedAuthor);
+             context.ExecuteStoreCommand("UPDATE dbo.Posts SET Rating = 5 WHERE Author = @p0", userSuppliedAuthor);
              Alternatively, you can also construct a DbParameter and supply it to SqlQuery. This allows you to use named parameters in the SQL query string.
-             context.ExecuteStoreCommand("UPDATE dbo.Posts SET Rating = 5 WHERE Author = @author", new SqlParameter("@author", EmployeeuppliedAuthor));
+             context.ExecuteStoreCommand("UPDATE dbo.Posts SET Rating = 5 WHERE Author = @author", new SqlParameter("@author", userSuppliedAuthor));
              </summary>
              <remarks>
              If there isn't an existing local transaction a new transaction will be used
@@ -30025,9 +30025,9 @@
              The command is specified using the server's native query language, such as SQL.
             
              As with any API that accepts SQL it is important to parameterize any user input to protect against a SQL injection attack. You can include parameter place holders in the SQL query string and then supply parameter values as additional arguments. Any parameter values you supply will automatically be converted to a DbParameter.
-             context.ExecuteStoreCommand("UPDATE dbo.Posts SET Rating = 5 WHERE Author = @p0", EmployeeuppliedAuthor);
+             context.ExecuteStoreCommand("UPDATE dbo.Posts SET Rating = 5 WHERE Author = @p0", userSuppliedAuthor);
              Alternatively, you can also construct a DbParameter and supply it to SqlQuery. This allows you to use named parameters in the SQL query string.
-             context.ExecuteStoreCommand("UPDATE dbo.Posts SET Rating = 5 WHERE Author = @author", new SqlParameter("@author", EmployeeuppliedAuthor));
+             context.ExecuteStoreCommand("UPDATE dbo.Posts SET Rating = 5 WHERE Author = @author", new SqlParameter("@author", userSuppliedAuthor));
              </summary>
              <param name="transactionalBehavior"> Controls the creation of a transaction for this command. </param>
              <param name="commandText">The command specified in the server's native query language.</param>
@@ -30041,9 +30041,9 @@
              Results are not tracked by the context, use the overload that specifies an entity set name to track results.
             
              As with any API that accepts SQL it is important to parameterize any user input to protect against a SQL injection attack. You can include parameter place holders in the SQL query string and then supply parameter values as additional arguments. Any parameter values you supply will automatically be converted to a DbParameter.
-             context.ExecuteStoreQuery&lt;Post&gt;("SELECT * FROM dbo.Posts WHERE Author = @p0", EmployeeuppliedAuthor);
+             context.ExecuteStoreQuery&lt;Post&gt;("SELECT * FROM dbo.Posts WHERE Author = @p0", userSuppliedAuthor);
              Alternatively, you can also construct a DbParameter and supply it to SqlQuery. This allows you to use named parameters in the SQL query string.
-             context.ExecuteStoreQuery&lt;Post&gt;("SELECT * FROM dbo.Posts WHERE Author = @author", new SqlParameter("@author", EmployeeuppliedAuthor));
+             context.ExecuteStoreQuery&lt;Post&gt;("SELECT * FROM dbo.Posts WHERE Author = @author", new SqlParameter("@author", userSuppliedAuthor));
              </summary>
              <typeparam name="TElement"> The element type of the result sequence. </typeparam>
              <param name="commandText"> The query specified in the server's native query language. </param>
@@ -30063,9 +30063,9 @@
              Results are not tracked by the context, use the overload that specifies an entity set name to track results.
             
              As with any API that accepts SQL it is important to parameterize any user input to protect against a SQL injection attack. You can include parameter place holders in the SQL query string and then supply parameter values as additional arguments. Any parameter values you supply will automatically be converted to a DbParameter.
-             context.ExecuteStoreQuery&lt;Post&gt;("SELECT * FROM dbo.Posts WHERE Author = @p0", EmployeeuppliedAuthor);
+             context.ExecuteStoreQuery&lt;Post&gt;("SELECT * FROM dbo.Posts WHERE Author = @p0", userSuppliedAuthor);
              Alternatively, you can also construct a DbParameter and supply it to SqlQuery. This allows you to use named parameters in the SQL query string.
-             context.ExecuteStoreQuery&lt;Post&gt;("SELECT * FROM dbo.Posts WHERE Author = @author", new SqlParameter("@author", EmployeeuppliedAuthor));
+             context.ExecuteStoreQuery&lt;Post&gt;("SELECT * FROM dbo.Posts WHERE Author = @author", new SqlParameter("@author", userSuppliedAuthor));
              </summary>
              <typeparam name="TElement"> The element type of the result sequence. </typeparam>
              <param name="commandText"> The query specified in the server's native query language. </param>
@@ -30086,9 +30086,9 @@
              If an entity set name is specified, results are tracked by the context.
             
              As with any API that accepts SQL it is important to parameterize any user input to protect against a SQL injection attack. You can include parameter place holders in the SQL query string and then supply parameter values as additional arguments. Any parameter values you supply will automatically be converted to a DbParameter.
-             context.ExecuteStoreQuery&lt;Post&gt;("SELECT * FROM dbo.Posts WHERE Author = @p0", EmployeeuppliedAuthor);
+             context.ExecuteStoreQuery&lt;Post&gt;("SELECT * FROM dbo.Posts WHERE Author = @p0", userSuppliedAuthor);
              Alternatively, you can also construct a DbParameter and supply it to SqlQuery. This allows you to use named parameters in the SQL query string.
-             context.ExecuteStoreQuery&lt;Post&gt;("SELECT * FROM dbo.Posts WHERE Author = @author", new SqlParameter("@author", EmployeeuppliedAuthor));
+             context.ExecuteStoreQuery&lt;Post&gt;("SELECT * FROM dbo.Posts WHERE Author = @author", new SqlParameter("@author", userSuppliedAuthor));
              </summary>
              <typeparam name="TElement"> The element type of the result sequence. </typeparam>
              <param name="commandText"> The query specified in the server's native query language. </param>
@@ -30113,9 +30113,9 @@
              If an entity set name is specified, results are tracked by the context.
             
              As with any API that accepts SQL it is important to parameterize any user input to protect against a SQL injection attack. You can include parameter place holders in the SQL query string and then supply parameter values as additional arguments. Any parameter values you supply will automatically be converted to a DbParameter.
-             context.ExecuteStoreQuery&lt;Post&gt;("SELECT * FROM dbo.Posts WHERE Author = @p0", EmployeeuppliedAuthor);
+             context.ExecuteStoreQuery&lt;Post&gt;("SELECT * FROM dbo.Posts WHERE Author = @p0", userSuppliedAuthor);
              Alternatively, you can also construct a DbParameter and supply it to SqlQuery. This allows you to use named parameters in the SQL query string.
-             context.ExecuteStoreQuery&lt;Post&gt;("SELECT * FROM dbo.Posts WHERE Author = @author", new SqlParameter("@author", EmployeeuppliedAuthor));
+             context.ExecuteStoreQuery&lt;Post&gt;("SELECT * FROM dbo.Posts WHERE Author = @author", new SqlParameter("@author", userSuppliedAuthor));
              </summary>
              <typeparam name="TElement"> The element type of the result sequence. </typeparam>
              <param name="commandText"> The query specified in the server's native query language. </param>
@@ -34366,7 +34366,7 @@
         </member>
         <member name="M:System.Data.Entity.Migrations.Design.MigrationCodeGenerator.Generate(System.String,System.Collections.Generic.IEnumerable{System.Data.Entity.Migrations.Model.MigrationOperation},System.String,System.String,System.String,System.String)">
             <summary>
-            Generates the code that should be added to the Employee project.
+            Generates the code that should be added to the users project.
             </summary>
             <param name="migrationId"> Unique identifier of the migration. </param>
             <param name="operations"> Operations to be performed by the migration. </param>
@@ -40170,9 +40170,9 @@
              method to return entities that are tracked by the context.
             
              As with any API that accepts SQL it is important to parameterize any user input to protect against a SQL injection attack. You can include parameter place holders in the SQL query string and then supply parameter values as additional arguments. Any parameter values you supply will automatically be converted to a DbParameter.
-             context.Database.SqlQuery&lt;Post&gt;("SELECT * FROM dbo.Posts WHERE Author = @p0", EmployeeuppliedAuthor);
+             context.Database.SqlQuery&lt;Post&gt;("SELECT * FROM dbo.Posts WHERE Author = @p0", userSuppliedAuthor);
              Alternatively, you can also construct a DbParameter and supply it to SqlQuery. This allows you to use named parameters in the SQL query string.
-             context.Database.SqlQuery&lt;Post&gt;("SELECT * FROM dbo.Posts WHERE Author = @author", new SqlParameter("@author", EmployeeuppliedAuthor));
+             context.Database.SqlQuery&lt;Post&gt;("SELECT * FROM dbo.Posts WHERE Author = @author", new SqlParameter("@author", userSuppliedAuthor));
              </summary>
              <typeparam name="TElement"> The type of object returned by the query. </typeparam>
              <param name="sql"> The SQL query string. </param>
@@ -40195,9 +40195,9 @@
              method to return entities that are tracked by the context.
             
              As with any API that accepts SQL it is important to parameterize any user input to protect against a SQL injection attack. You can include parameter place holders in the SQL query string and then supply parameter values as additional arguments. Any parameter values you supply will automatically be converted to a DbParameter.
-             context.Database.SqlQuery(typeof(Post), "SELECT * FROM dbo.Posts WHERE Author = @p0", EmployeeuppliedAuthor);
+             context.Database.SqlQuery(typeof(Post), "SELECT * FROM dbo.Posts WHERE Author = @p0", userSuppliedAuthor);
              Alternatively, you can also construct a DbParameter and supply it to SqlQuery. This allows you to use named parameters in the SQL query string.
-             context.Database.SqlQuery(typeof(Post), "SELECT * FROM dbo.Posts WHERE Author = @author", new SqlParameter("@author", EmployeeuppliedAuthor));
+             context.Database.SqlQuery(typeof(Post), "SELECT * FROM dbo.Posts WHERE Author = @author", new SqlParameter("@author", userSuppliedAuthor));
              </summary>
              <param name="elementType"> The type of object returned by the query. </param>
              <param name="sql"> The SQL query string. </param>
@@ -40215,9 +40215,9 @@
              Executes the given DDL/DML command against the database.
             
              As with any API that accepts SQL it is important to parameterize any user input to protect against a SQL injection attack. You can include parameter place holders in the SQL query string and then supply parameter values as additional arguments. Any parameter values you supply will automatically be converted to a DbParameter.
-             context.Database.ExecuteSqlCommand("UPDATE dbo.Posts SET Rating = 5 WHERE Author = @p0", EmployeeuppliedAuthor);
+             context.Database.ExecuteSqlCommand("UPDATE dbo.Posts SET Rating = 5 WHERE Author = @p0", userSuppliedAuthor);
              Alternatively, you can also construct a DbParameter and supply it to SqlQuery. This allows you to use named parameters in the SQL query string.
-             context.Database.ExecuteSqlCommand("UPDATE dbo.Posts SET Rating = 5 WHERE Author = @author", new SqlParameter("@author", EmployeeuppliedAuthor));
+             context.Database.ExecuteSqlCommand("UPDATE dbo.Posts SET Rating = 5 WHERE Author = @author", new SqlParameter("@author", userSuppliedAuthor));
              </summary>
              <remarks>
              If there isn't an existing local or ambient transaction a new transaction will be used
@@ -40232,9 +40232,9 @@
              Executes the given DDL/DML command against the database.
             
              As with any API that accepts SQL it is important to parameterize any user input to protect against a SQL injection attack. You can include parameter place holders in the SQL query string and then supply parameter values as additional arguments. Any parameter values you supply will automatically be converted to a DbParameter.
-             context.Database.ExecuteSqlCommand("UPDATE dbo.Posts SET Rating = 5 WHERE Author = @p0", EmployeeuppliedAuthor);
+             context.Database.ExecuteSqlCommand("UPDATE dbo.Posts SET Rating = 5 WHERE Author = @p0", userSuppliedAuthor);
              Alternatively, you can also construct a DbParameter and supply it to SqlQuery. This allows you to use named parameters in the SQL query string.
-             context.Database.ExecuteSqlCommand("UPDATE dbo.Posts SET Rating = 5 WHERE Author = @author", new SqlParameter("@author", EmployeeuppliedAuthor));
+             context.Database.ExecuteSqlCommand("UPDATE dbo.Posts SET Rating = 5 WHERE Author = @author", new SqlParameter("@author", userSuppliedAuthor));
              </summary>
              <param name="transactionalBehavior"> Controls the creation of a transaction for this command. </param>
              <param name="sql"> The command string. </param>
@@ -40803,9 +40803,9 @@
              the correct type are returned.
             
              As with any API that accepts SQL it is important to parameterize any user input to protect against a SQL injection attack. You can include parameter place holders in the SQL query string and then supply parameter values as additional arguments. Any parameter values you supply will automatically be converted to a DbParameter.
-             context.Set(typeof(Blog)).SqlQuery("SELECT * FROM dbo.Posts WHERE Author = @p0", EmployeeuppliedAuthor);
+             context.Set(typeof(Blog)).SqlQuery("SELECT * FROM dbo.Posts WHERE Author = @p0", userSuppliedAuthor);
              Alternatively, you can also construct a DbParameter and supply it to SqlQuery. This allows you to use named parameters in the SQL query string.
-             context.Set(typeof(Blog)).SqlQuery("SELECT * FROM dbo.Posts WHERE Author = @author", new SqlParameter("@author", EmployeeuppliedAuthor));
+             context.Set(typeof(Blog)).SqlQuery("SELECT * FROM dbo.Posts WHERE Author = @author", new SqlParameter("@author", userSuppliedAuthor));
              </summary>
              <param name="sql"> The SQL query string. </param>
              <param name="parameters"> 
@@ -41155,9 +41155,9 @@
              the correct type are returned.
             
              As with any API that accepts SQL it is important to parameterize any user input to protect against a SQL injection attack. You can include parameter place holders in the SQL query string and then supply parameter values as additional arguments. Any parameter values you supply will automatically be converted to a DbParameter.
-             context.Blogs.SqlQuery("SELECT * FROM dbo.Posts WHERE Author = @p0", EmployeeuppliedAuthor);
+             context.Blogs.SqlQuery("SELECT * FROM dbo.Posts WHERE Author = @p0", userSuppliedAuthor);
              Alternatively, you can also construct a DbParameter and supply it to SqlQuery. This allows you to use named parameters in the SQL query string.
-             context.Blogs.SqlQuery("SELECT * FROM dbo.Posts WHERE Author = @author", new SqlParameter("@author", EmployeeuppliedAuthor));
+             context.Blogs.SqlQuery("SELECT * FROM dbo.Posts WHERE Author = @author", new SqlParameter("@author", userSuppliedAuthor));
              </summary>
              <param name="sql"> The SQL query string. </param>
              <param name="parameters"> 

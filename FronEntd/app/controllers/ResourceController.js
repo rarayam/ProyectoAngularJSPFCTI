@@ -1,7 +1,6 @@
 ﻿app.controller('ResourceController', ['$scope','$http','Config',
     function ($scope, $http, Config) {
-
-        $scope.Resources = [];
+        
         $scope.EmployeeCollection= [];
 
         $scope.list = function () {

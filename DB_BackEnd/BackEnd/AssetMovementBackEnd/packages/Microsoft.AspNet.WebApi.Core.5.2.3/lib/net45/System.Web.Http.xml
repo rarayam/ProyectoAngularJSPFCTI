@@ -498,9 +498,9 @@
       <summary>Gets a unique identifier for this attribute.</summary>
       <returns>A unique identifier for this attribute.</returns>
     </member>
-    <member name="P:System.Web.Http.AuthorizeAttribute.Employee">
-      <summary>Gets or sets the authorized Employee. </summary>
-      <returns>The Employee string. </returns>
+    <member name="P:System.Web.Http.AuthorizeAttribute.Users">
+      <summary>Gets or sets the authorized users. </summary>
+      <returns>The users string. </returns>
     </member>
     <member name="T:System.Web.Http.FromBodyAttribute">
       <summary> An attribute that specifies that an action parameter comes only from the entity body of the incoming <see cref="T:System.Net.Http.HttpRequestMessage" />. </summary>
@@ -5759,7 +5759,7 @@
     <member name="M:System.Web.Http.Tracing.ITraceWriter.Trace(System.Net.Http.HttpRequestMessage,System.String,System.Web.Http.Tracing.TraceLevel,System.Action{System.Web.Http.Tracing.TraceRecord})">
       <summary> Invokes the specified traceAction to allow setting values in a new <see cref="T:System.Web.Http.Tracing.TraceRecord" /> if and only if tracing is permitted at the given category and level. </summary>
       <param name="request">The current <see cref="T:System.Net.Http.HttpRequestMessage" />.   It may be null but doing so will prevent subsequent trace analysis  from correlating the trace to a particular request.</param>
-      <param name="category">The logical category for the trace.  Employee can define their own.</param>
+      <param name="category">The logical category for the trace.  Users can define their own.</param>
       <param name="level">The <see cref="T:System.Web.Http.Tracing.TraceLevel" /> at which to write this trace.</param>
       <param name="traceAction">The action to invoke if tracing is enabled.  The caller is expected to fill in the fields of the given <see cref="T:System.Web.Http.Tracing.TraceRecord" /> in this action.</param>
     </member>

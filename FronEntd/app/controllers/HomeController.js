@@ -1,5 +1,5 @@
-﻿app.controller('HomeController', ['$scope', 'DataEmployee',
-    function ($scope, DataEmployee) {
-        $scope.Employee = DataEmployee.List();
+﻿app.controller('HomeController', ['$scope', 'Config',
+    function ($scope ,Config) {
+        $scope.Employee = 'prueba';
     }
 ])
