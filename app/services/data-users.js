@@ -1,65 +1,40 @@
-﻿app.service('DataUsers', [
+﻿app.service('DataEmployee', [
     function () {
         var count = 0;
-        var users = [
-            {
-                id: 1,
-                Nombre: 'Roger',
-                Apellido: 'Araya',
-                Telefono: 88606902,
-                Edad: 32
-            },
-            {
-                id: 2,
-                Nombre: 'Sonia',
-                Apellido: 'Fallas',
-                Telefono: 88216089,
-                Edad: 32
-            },
-            {
-                id: 3,
-                Nombre: 'Alicia',
-                Apellido: 'Montero',
-                Telefono: 22742920,
-                Edad: 53
-            }
+        var EmployeeCollection = [
         ];
 
         this.getAll = function () {
-            return users;
+            return EmployeeCollection;
         }
 
         this.getHome = function () {
             var userhome = [];
-            for (var i = 0; i < users.length; i++) {
+            for (var i = 0; i < EmployeeCollection.length; i++) {
                 var uHome = {
-                    NombreCompleto: users[i].Nombre + ' ' + users[i].Apellido,
-                    Edad: users[i].Edad
+                    NombreCompleto: EmployeeCollection[i].Nombre + ' ' + EmployeeCollection[i].Apellido,
+                    Edad: Employee[i].Edad
                             };
                 userhome.push(uHome);
             }
             return userhome;
         }
 
-        this.Insert = function (user) {
+        this.Insert = function (Employee) {
             var u = {
-                id: count++,
-                Nombre: user.Nombre,
-                Apellido: user.Apellido,
-                Telefono: user.Telefono,
-                Edad: user.Edad
+                Name: Employee.Name,
+                Id: Employee.Id,
+                IP: Employee.IP,
+                ServiceUnit: Employee.ServiceUnit,
+                ResourceId: Employee.ResourceId
             }
 
-            users.push(u);
+
+            EmployeeCollection.push(u);
         }
 
-        this.remove = function (id, user) {
-            var u = users.find(function (item, index) {
-                return item.id == id;
-            });
-
-            var index = users.indexOf(u);
-            users.splice(index, 1);
+        this.Remove = function (id, Employee) {
+            
         }
 
         

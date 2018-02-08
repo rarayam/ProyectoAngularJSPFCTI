@@ -401,7 +401,7 @@ var ngTouchClickDirectiveFactory = ['$parse', '$timeout', '$rootElement',
   //       other elements without ngTap on them work normally.
   //
   // This is an ugly, terrible hack!
-  // Yeah, tell me about it. The alternatives are using the slow click events, or making our users
+  // Yeah, tell me about it. The alternatives are using the slow click events, or making our Employee
   // deal with the ghost clicks, so I consider this the least of evils. Fortunately Angular
   // encapsulates this ugly logic away from the user.
   //

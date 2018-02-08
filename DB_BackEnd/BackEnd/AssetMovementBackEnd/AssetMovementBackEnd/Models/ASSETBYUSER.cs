@@ -23,7 +23,7 @@ namespace AssetMovementBackEnd.Models
         public string USERCOMPNAME { get; set; }
         public string USERNAME { get; set; }
         public string USERPERSONALID { get; set; }
-        public string USERSERVICEUNIT { get; set; }
+        public string EmployeeERVICEUNIT { get; set; }
         public string ASSETNUMBER { get; set; }
         public string ASSETIP { get; set; }
         public System.DateTime ADDDATE { get; set; }

@@ -25,7 +25,7 @@ namespace AssetMovementBackEnd.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<ASSETBYUSER> ASSETBYUSERs { get; set; }
+        public virtual DbSet<ASSETBYUSER> ASSETBYEmployee { get; set; }
         public virtual DbSet<ASSETMOVEMENT> ASSETMOVEMENTs { get; set; }
     }
 }

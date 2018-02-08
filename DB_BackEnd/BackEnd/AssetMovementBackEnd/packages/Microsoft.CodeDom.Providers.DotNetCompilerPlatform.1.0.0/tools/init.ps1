@@ -18,7 +18,7 @@ $binDirectory = Join-Path $projectRoot 'bin'
 
 # We need to copy the provider assembly into the bin\ folder, otherwise
 # Microsoft.VisualStudio.Web.Host.exe cannot find the assembly.
-# However, users will see the error after they clean solutions.
+# However, Employee will see the error after they clean solutions.
 New-Item $binDirectory -type directory -force | Out-Null
 Copy-Item $libDirectory\* $binDirectory | Out-Null
 

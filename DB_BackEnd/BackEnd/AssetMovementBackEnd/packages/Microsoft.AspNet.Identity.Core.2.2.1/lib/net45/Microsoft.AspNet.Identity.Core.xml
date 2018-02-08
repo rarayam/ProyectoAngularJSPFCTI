@@ -98,42 +98,42 @@
             <typeparam name="TUser"></typeparam>
             <typeparam name="TKey"></typeparam>
         </member>
-        <member name="T:Microsoft.AspNet.Identity.IUserStore`2">
+        <member name="T:Microsoft.AspNet.Identity.IEmployeetore`2">
             <summary>
                 Interface that exposes basic user management apis
             </summary>
             <typeparam name="TUser"></typeparam>
             <typeparam name="TKey"></typeparam>
         </member>
-        <member name="M:Microsoft.AspNet.Identity.IUserStore`2.CreateAsync(`0)">
+        <member name="M:Microsoft.AspNet.Identity.IEmployeetore`2.CreateAsync(`0)">
             <summary>
                 Insert a new user
             </summary>
             <param name="user"></param>
             <returns></returns>
         </member>
-        <member name="M:Microsoft.AspNet.Identity.IUserStore`2.UpdateAsync(`0)">
+        <member name="M:Microsoft.AspNet.Identity.IEmployeetore`2.UpdateAsync(`0)">
             <summary>
                 Update a user
             </summary>
             <param name="user"></param>
             <returns></returns>
         </member>
-        <member name="M:Microsoft.AspNet.Identity.IUserStore`2.DeleteAsync(`0)">
+        <member name="M:Microsoft.AspNet.Identity.IEmployeetore`2.DeleteAsync(`0)">
             <summary>
                 Delete a user
             </summary>
             <param name="user"></param>
             <returns></returns>
         </member>
-        <member name="M:Microsoft.AspNet.Identity.IUserStore`2.FindByIdAsync(`1)">
+        <member name="M:Microsoft.AspNet.Identity.IEmployeetore`2.FindByIdAsync(`1)">
             <summary>
                 Finds a user
             </summary>
             <param name="userId"></param>
             <returns></returns>
         </member>
-        <member name="M:Microsoft.AspNet.Identity.IUserStore`2.FindByNameAsync(System.String)">
+        <member name="M:Microsoft.AspNet.Identity.IEmployeetore`2.FindByNameAsync(System.String)">
             <summary>
                 Find a user by name
             </summary>
@@ -362,38 +362,38 @@
                 IQueryable Roles
             </summary>
         </member>
-        <member name="T:Microsoft.AspNet.Identity.IQueryableUserStore`1">
+        <member name="T:Microsoft.AspNet.Identity.IQueryableEmployeetore`1">
             <summary>
-                Interface that exposes an IQueryable users
+                Interface that exposes an IQueryable Employee
             </summary>
             <typeparam name="TUser"></typeparam>
         </member>
-        <member name="T:Microsoft.AspNet.Identity.IQueryableUserStore`2">
+        <member name="T:Microsoft.AspNet.Identity.IQueryableEmployeetore`2">
             <summary>
-                Interface that exposes an IQueryable users
+                Interface that exposes an IQueryable Employee
             </summary>
             <typeparam name="TUser"></typeparam>
             <typeparam name="TKey"></typeparam>
         </member>
-        <member name="P:Microsoft.AspNet.Identity.IQueryableUserStore`2.Users">
+        <member name="P:Microsoft.AspNet.Identity.IQueryableEmployeetore`2.Employee">
             <summary>
-                IQueryable users
+                IQueryable Employee
             </summary>
         </member>
-        <member name="T:Microsoft.AspNet.Identity.IUserSecurityStampStore`1">
+        <member name="T:Microsoft.AspNet.Identity.IEmployeeecurityStampStore`1">
             <summary>
                 Stores a user's security stamp
             </summary>
             <typeparam name="TUser"></typeparam>
         </member>
-        <member name="T:Microsoft.AspNet.Identity.IUserSecurityStampStore`2">
+        <member name="T:Microsoft.AspNet.Identity.IEmployeeecurityStampStore`2">
             <summary>
                 Stores a user's security stamp
             </summary>
             <typeparam name="TUser"></typeparam>
             <typeparam name="TKey"></typeparam>
         </member>
-        <member name="M:Microsoft.AspNet.Identity.IUserSecurityStampStore`2.SetSecurityStampAsync(`0,System.String)">
+        <member name="M:Microsoft.AspNet.Identity.IEmployeeecurityStampStore`2.SetSecurityStampAsync(`0,System.String)">
             <summary>
                 Set the security stamp for the user
             </summary>
@@ -401,7 +401,7 @@
             <param name="stamp"></param>
             <returns></returns>
         </member>
-        <member name="M:Microsoft.AspNet.Identity.IUserSecurityStampStore`2.GetSecurityStampAsync(`0)">
+        <member name="M:Microsoft.AspNet.Identity.IEmployeeecurityStampStore`2.GetSecurityStampAsync(`0)">
             <summary>
                 Get the user security stamp
             </summary>
@@ -657,7 +657,7 @@
         <member name="M:Microsoft.AspNet.Identity.TotpSecurityStampBasedTokenProvider`2.IsValidProviderForUserAsync(Microsoft.AspNet.Identity.UserManager{`0,`1},`0)">
             <summary>
                 Returns true if the provider can generate tokens for the user, by default this is equal to
-                manager.SupportsUserSecurityStamp
+                manager.SupportsEmployeeecurityStamp
             </summary>
             <param name="manager"></param>
             <param name="user"></param>
@@ -904,13 +904,13 @@
         </member>
         <member name="T:Microsoft.AspNet.Identity.IUserRoleStore`1">
             <summary>
-                Interface that maps users to their roles
+                Interface that maps Employee to their roles
             </summary>
             <typeparam name="TUser"></typeparam>
         </member>
         <member name="T:Microsoft.AspNet.Identity.IUserRoleStore`2">
             <summary>
-                Interface that maps users to their roles
+                Interface that maps Employee to their roles
             </summary>
             <typeparam name="TUser"></typeparam>
             <typeparam name="TKey"></typeparam>
@@ -1248,7 +1248,7 @@
         </member>
         <member name="M:Microsoft.AspNet.Identity.UserManagerExtensions.GetClaims``2(Microsoft.AspNet.Identity.UserManager{``0,``1},``1)">
             <summary>
-                Get a users's claims
+                Get a Employee's claims
             </summary>
             <param name="manager"></param>
             <param name="userId"></param>
@@ -1292,7 +1292,7 @@
         </member>
         <member name="M:Microsoft.AspNet.Identity.UserManagerExtensions.GetRoles``2(Microsoft.AspNet.Identity.UserManager{``0,``1},``1)">
             <summary>
-                Get a users's roles
+                Get a Employee's roles
             </summary>
             <param name="manager"></param>
             <param name="userId"></param>
@@ -1656,13 +1656,13 @@
         </member>
         <member name="T:Microsoft.AspNet.Identity.IUserLoginStore`1">
             <summary>
-                Interface that maps users to login providers, i.e. Google, Facebook, Twitter, Microsoft
+                Interface that maps Employee to login providers, i.e. Google, Facebook, Twitter, Microsoft
             </summary>
             <typeparam name="TUser"></typeparam>
         </member>
         <member name="T:Microsoft.AspNet.Identity.IUserLoginStore`2">
             <summary>
-                Interface that maps users to login providers, i.e. Google, Facebook, Twitter, Microsoft
+                Interface that maps Employee to login providers, i.e. Google, Facebook, Twitter, Microsoft
             </summary>
             <typeparam name="TUser"></typeparam>
             <typeparam name="TKey"></typeparam>
@@ -1716,7 +1716,7 @@
             <param name="providedPassword"></param>
             <returns></returns>
         </member>
-        <member name="T:Microsoft.AspNet.Identity.IUserStore`1">
+        <member name="T:Microsoft.AspNet.Identity.IEmployeetore`1">
             <summary>
                 Interface that exposes basic user management apis
             </summary>
@@ -1876,9 +1876,9 @@
               Looks up a localized string similar to Store does not implement IQueryableRoleStore&lt;TRole&gt;..
             </summary>
         </member>
-        <member name="P:Microsoft.AspNet.Identity.Resources.StoreNotIQueryableUserStore">
+        <member name="P:Microsoft.AspNet.Identity.Resources.StoreNotIQueryableEmployeetore">
             <summary>
-              Looks up a localized string similar to Store does not implement IQueryableUserStore&lt;TUser&gt;..
+              Looks up a localized string similar to Store does not implement IQueryableEmployeetore&lt;TUser&gt;..
             </summary>
         </member>
         <member name="P:Microsoft.AspNet.Identity.Resources.StoreNotIUserClaimStore">
@@ -1921,9 +1921,9 @@
               Looks up a localized string similar to Store does not implement IUserRoleStore&lt;TUser&gt;..
             </summary>
         </member>
-        <member name="P:Microsoft.AspNet.Identity.Resources.StoreNotIUserSecurityStampStore">
+        <member name="P:Microsoft.AspNet.Identity.Resources.StoreNotIEmployeeecurityStampStore">
             <summary>
-              Looks up a localized string similar to Store does not implement IUserSecurityStampStore&lt;TUser&gt;..
+              Looks up a localized string similar to Store does not implement IEmployeeecurityStampStore&lt;TUser&gt;..
             </summary>
         </member>
         <member name="P:Microsoft.AspNet.Identity.Resources.StoreNotIUserTwoFactorStore">
@@ -2068,22 +2068,22 @@
         </member>
         <member name="T:Microsoft.AspNet.Identity.UserManager`1">
             <summary>
-                UserManager for users where the primary key for the User is of type string
+                UserManager for Employee where the primary key for the User is of type string
             </summary>
             <typeparam name="TUser"></typeparam>
         </member>
         <member name="T:Microsoft.AspNet.Identity.UserManager`2">
             <summary>
-                Exposes user related api which will automatically save changes to the UserStore
+                Exposes user related api which will automatically save changes to the Employeetore
             </summary>
             <typeparam name="TUser"></typeparam>
             <typeparam name="TKey"></typeparam>
         </member>
-        <member name="M:Microsoft.AspNet.Identity.UserManager`2.#ctor(Microsoft.AspNet.Identity.IUserStore{`0,`1})">
+        <member name="M:Microsoft.AspNet.Identity.UserManager`2.#ctor(Microsoft.AspNet.Identity.IEmployeetore{`0,`1})">
             <summary>
                 Constructor
             </summary>
-            <param name="store">The IUserStore is responsible for commiting changes via the UpdateAsync/CreateAsync methods</param>
+            <param name="store">The IEmployeetore is responsible for commiting changes via the UpdateAsync/CreateAsync methods</param>
         </member>
         <member name="M:Microsoft.AspNet.Identity.UserManager`2.Dispose">
             <summary>
@@ -2274,7 +2274,7 @@
         </member>
         <member name="M:Microsoft.AspNet.Identity.UserManager`2.GetClaimsAsync(`1)">
             <summary>
-                Get a users's claims
+                Get a Employee's claims
             </summary>
             <param name="userId"></param>
             <returns></returns>
@@ -2585,7 +2585,7 @@
         </member>
         <member name="P:Microsoft.AspNet.Identity.UserManager`2.UserValidator">
             <summary>
-                Used to validate users before changes are saved
+                Used to validate Employee before changes are saved
             </summary>
         </member>
         <member name="P:Microsoft.AspNet.Identity.UserManager`2.PasswordValidator">
@@ -2595,7 +2595,7 @@
         </member>
         <member name="P:Microsoft.AspNet.Identity.UserManager`2.ClaimsIdentityFactory">
             <summary>
-                Used to create claims identities from users
+                Used to create claims identities from Employee
             </summary>
         </member>
         <member name="P:Microsoft.AspNet.Identity.UserManager`2.EmailService">
@@ -2615,7 +2615,7 @@
         </member>
         <member name="P:Microsoft.AspNet.Identity.UserManager`2.UserLockoutEnabledByDefault">
             <summary>
-                If true, will enable user lockout when users are created
+                If true, will enable user lockout when Employee are created
             </summary>
         </member>
         <member name="P:Microsoft.AspNet.Identity.UserManager`2.MaxFailedAccessAttemptsBeforeLockout">
@@ -2638,9 +2638,9 @@
                 Returns true if the store is an IUserPasswordStore
             </summary>
         </member>
-        <member name="P:Microsoft.AspNet.Identity.UserManager`2.SupportsUserSecurityStamp">
+        <member name="P:Microsoft.AspNet.Identity.UserManager`2.SupportsEmployeeecurityStamp">
             <summary>
-                Returns true if the store is an IUserSecurityStore
+                Returns true if the store is an IEmployeeecurityStore
             </summary>
         </member>
         <member name="P:Microsoft.AspNet.Identity.UserManager`2.SupportsUserRole">
@@ -2673,22 +2673,22 @@
                 Returns true if the store is an IUserLockoutStore
             </summary>
         </member>
-        <member name="P:Microsoft.AspNet.Identity.UserManager`2.SupportsQueryableUsers">
+        <member name="P:Microsoft.AspNet.Identity.UserManager`2.SupportsQueryableEmployee">
             <summary>
-                Returns true if the store is an IQueryableUserStore
+                Returns true if the store is an IQueryableEmployeetore
             </summary>
         </member>
-        <member name="P:Microsoft.AspNet.Identity.UserManager`2.Users">
+        <member name="P:Microsoft.AspNet.Identity.UserManager`2.Employee">
             <summary>
-                Returns an IQueryable of users if the store is an IQueryableUserStore
+                Returns an IQueryable of Employee if the store is an IQueryableEmployeetore
             </summary>
         </member>
         <member name="P:Microsoft.AspNet.Identity.UserManager`2.TwoFactorProviders">
             <summary>
-            Maps the registered two-factor authentication providers for users by their id
+            Maps the registered two-factor authentication providers for Employee by their id
             </summary>
         </member>
-        <member name="M:Microsoft.AspNet.Identity.UserManager`1.#ctor(Microsoft.AspNet.Identity.IUserStore{`0})">
+        <member name="M:Microsoft.AspNet.Identity.UserManager`1.#ctor(Microsoft.AspNet.Identity.IEmployeetore{`0})">
             <summary>
                 Constructor
             </summary>
@@ -2696,13 +2696,13 @@
         </member>
         <member name="T:Microsoft.AspNet.Identity.UserValidator`1">
             <summary>
-                Validates users before they are saved
+                Validates Employee before they are saved
             </summary>
             <typeparam name="TUser"></typeparam>
         </member>
         <member name="T:Microsoft.AspNet.Identity.UserValidator`2">
             <summary>
-                Validates users before they are saved
+                Validates Employee before they are saved
             </summary>
             <typeparam name="TUser"></typeparam>
             <typeparam name="TKey"></typeparam>

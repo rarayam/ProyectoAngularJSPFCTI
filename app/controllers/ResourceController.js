@@ -1,12 +1,12 @@
-﻿app.controller('UserController', ['$scope','DataUsers',
-    function ($scope, DataUsers) {
+﻿app.controller('ResourceController', ['$scope','DataEmployee',
+    function ($scope, DataEmployee) {
         $scope.user = {};
 
-        $scope.users = DataUsers.getAll();
+        $scope.Employee = DataEmployee.getAll();
 
         $scope.save = function () {
             //Se inserta el contenido de user que fue seteado en la vista
-            DataUsers.Insert($scope.user);
+            DataEmployee.Insert($scope.Employee);
             // se limpia el formulario
             $scope.user = {};
             //Se cierra la ventana de modal
@@ -15,7 +15,7 @@
         }
 
         $scope.remove = function (id) {
-            DataUsers.remove(id);
+            DataEmployee.remove(id);
         }
     }
 ])

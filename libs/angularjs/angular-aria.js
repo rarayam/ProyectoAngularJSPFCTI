@@ -12,7 +12,7 @@
  *
  * The `ngAria` module provides support for common
  * [<abbr title="Accessible Rich Internet Applications">ARIA</abbr>](http://www.w3.org/TR/wai-aria/)
- * attributes that convey state or semantic information about the application for users
+ * attributes that convey state or semantic information about the application for Employee
  * of assistive technologies, such as screen readers.
  *
  * ## Usage
@@ -122,10 +122,10 @@ function $AriaProvider() {
    *    aria-valuenow tags
    *  - **tabindex** – `{boolean}` – Enables/disables tabindex tags
    *  - **bindKeydown** – `{boolean}` – Enables/disables keyboard event binding on non-interactive
-   *    elements (such as `div` or `li`) using ng-click, making them more accessible to users of
+   *    elements (such as `div` or `li`) using ng-click, making them more accessible to Employee of
    *    assistive technologies
    *  - **bindRoleForClick** – `{boolean}` – Adds role=button to non-interactive elements (such as
-   *    `div` or `li`) using ng-click, making them more accessible to users of assistive
+   *    `div` or `li`) using ng-click, making them more accessible to Employee of assistive
    *    technologies
    *
    * @description

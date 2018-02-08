@@ -1295,21 +1295,21 @@ angular.mock.dump = function(object) {
  * the following is possible:
  *
   ```js
-    $httpBackend.whenRoute('GET', '/users/:id')
+    $httpBackend.whenRoute('GET', '/Employee/:id')
       .respond(function(method, url, data, headers, params) {
         return [200, MockUserList[Number(params.id)]];
       });
 
-    $httpBackend.whenRoute('GET', '/users')
+    $httpBackend.whenRoute('GET', '/Employee')
       .respond(function(method, url, data, headers, params) {
         var userList = angular.copy(MockUserList),
           defaultSort = 'lastName',
           count, pages, isPrevious, isNext;
 
-        // paged api response '/v1/users?page=2'
+        // paged api response '/v1/Employee?page=2'
         params.page = Number(params.page) || 1;
 
-        // query for last names '/v1/users?q=Archer'
+        // query for last names '/v1/Employee?q=Archer'
         if (params.q) {
           userList = $filter('filter')({lastName: params.q});
         }
@@ -1322,7 +1322,7 @@ angular.mock.dump = function(object) {
           count:    userList.length,
           previous: isPrevious,
           next:     isNext,
-          // sort field -> '/v1/users?sortBy=firstName'
+          // sort field -> '/v1/Employee?sortBy=firstName'
           results:  $filter('orderBy')(userList, params.sortBy || defaultSort)
                       .splice((params.page - 1) * pagingLength, pagingLength)
         }];

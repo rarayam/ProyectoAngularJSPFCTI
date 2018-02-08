@@ -580,7 +580,7 @@ var AI;
             this.userAccountId = "ai.user.accountId";
             this.userAgent = "ai.user.userAgent";
             this.userId = "ai.user.id";
-            this.userStoreRegion = "ai.user.storeRegion";
+            this.EmployeetoreRegion = "ai.user.storeRegion";
             this.userAuthUserId = "ai.user.authUserId";
             this.userAnonymousUserAcquisitionDate = "ai.user.anonUserAcquisitionDate";
             this.userAuthenticatedUserAcquisitionDate = "ai.user.authUserAcquisitionDate";
@@ -2013,7 +2013,7 @@ var Microsoft;
                         envelope.tags[tagKeys.userAuthUserId] = userContext.authenticatedId;
                     }
                     if (typeof userContext.storeRegion === "string") {
-                        envelope.tags[tagKeys.userStoreRegion] = userContext.storeRegion;
+                        envelope.tags[tagKeys.EmployeetoreRegion] = userContext.storeRegion;
                     }
                 }
             };

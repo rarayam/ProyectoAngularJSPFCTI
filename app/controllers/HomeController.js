@@ -1,6 +1,6 @@
-﻿app.controller('HomeController', ['$scope', 'DataUsers',
-    function ($scope, DataUsers) {
-        $scope.usersHome = DataUsers.getHome();
-        $scope.users = DataUsers.getAll();
+﻿app.controller('HomeController', ['$scope', 'DataEmployee',
+    function ($scope, DataEmployee) {
+        $scope.EmployeeHome = DataEmployee.getHome();
+        $scope.Employee = DataEmployee.getAll();
     }
 ])

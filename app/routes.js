@@ -5,10 +5,10 @@
                 title: 'home',
                 templateUrl: 'app/views/home.html',
                 controller: 'HomeController'
-            }).when('/user', {
-                title: 'user',
-                templateUrl: 'app/views/users.html',
-                controller: 'UserController'
+            }).when('/add', {
+                title: 'add',
+                templateUrl: 'app/views/addResource.html',
+                controller: 'ResourceController'
             }).
             otherwise({
                 redirecTo: '/'

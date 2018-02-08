@@ -19120,7 +19120,7 @@ function adjustMatchers(matchers) {
  * <div class="alert alert-danger">
  * AngularJS strongly relies on contextual escaping for the security of bindings: disabling or
  * modifying this might cause cross site scripting (XSS) vulnerabilities. For libraries owners,
- * changes to this service will also influence users, so be extra careful and document your changes.
+ * changes to this service will also influence Employee, so be extra careful and document your changes.
  * </div>
  *
  * Typically, you would configure or override the {@link ng.$sceDelegate $sceDelegate} instead of
@@ -24105,7 +24105,7 @@ var inputType = {
      * Input with date validation and transformation. In browsers that do not yet support
      * the HTML5 date input, a text element will be used. In that case, text must be entered in a valid ISO-8601
      * date format (yyyy-MM-dd), for example: `2009-01-06`. Since many
-     * modern browsers do not yet support this input type, it is important to provide cues to users on the
+     * modern browsers do not yet support this input type, it is important to provide cues to Employee on the
      * expected input format via a placeholder or label.
      *
      * The model must always be a Date object, otherwise Angular will throw an error.
@@ -25195,7 +25195,7 @@ function textInputType(scope, element, attr, ctrl, $sniffer, $browser) {
 function baseInputType(scope, element, attr, ctrl, $sniffer, $browser) {
   var type = lowercase(element[0].type);
 
-  // In composition mode, users are still inputting intermediate text buffer,
+  // In composition mode, Employee are still inputting intermediate text buffer,
   // hold the listener until composition is done.
   // More about composition events: https://developer.mozilla.org/en-US/docs/Web/API/CompositionEvent
   if (!$sniffer.android) {
@@ -28639,7 +28639,7 @@ var ngModelMinErr = minErr('ngModel');
  *   var value = modelValue || viewValue;
  *
  *   // Lookup user by username
- *   return $http.get('/api/users/' + value).
+ *   return $http.get('/api/Employee/' + value).
  *      then(function resolved() {
  *        //username exists, this means validation fails
  *        return $q.reject('exists');

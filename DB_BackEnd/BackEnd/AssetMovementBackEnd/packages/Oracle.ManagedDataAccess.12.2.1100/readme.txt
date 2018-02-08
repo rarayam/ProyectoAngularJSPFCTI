@@ -113,7 +113,7 @@ The Oracle.ManagedDataAccessDTC.dll assembly is ONLY needed if you are using Dis
 not need to be referenced by your application.
 
 The Oracle.ManagedDataAccessIOP.dll assembly is ONLY needed if you are using Kerberos5 based external 
-authentication. Kerberos5 users will need to download MIT Kerberos for Windows version 4.0.1 from 
+authentication. Kerberos5 Employee will need to download MIT Kerberos for Windows version 4.0.1 from 
 	http://web.mit.edu/kerberos/dist/
 to utilize ODP.NET, Managed Driver's support of Kerberos5.
 
