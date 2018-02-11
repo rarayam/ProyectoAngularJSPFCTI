@@ -36,7 +36,30 @@
 </nav>
   
 
-    <div class="container">
+    <style>
+        .img-responsive {
+            margin: 0 auto;
+            max-width: 100%;
+            height: 100%;
+            position:relative;
+
+        }
+        .containerFront {
+            position: absolute;
+            top: 25%;
+            left: 5%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+
+    <div>
+        <div class="col-md-12 text-center">
+            <img src="app\images\imagen1.jpg" class="img-responsive" alt="Laptop">
+        </div>
+    </div>
+
+    <div class="container containerFront">
         <div ng-view></div>
     </div>
 
@@ -56,5 +79,7 @@
     <script type="text/javascript" src="app/controllers/main-controller.js"></script>
     <script type="text/javascript" src="app/controllers/HomeController.js"></script>
     <script type="text/javascript" src="app/controllers/ResourceController.js"></script>
+    <script type="text/javascript" src="app/controllers/Movement-controller.js"></script>
+    <script type="text/javascript" src="app/controllers/login-controller.js"></script>
 </body>
 </html>
