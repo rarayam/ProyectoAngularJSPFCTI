@@ -50,9 +50,6 @@ C:\Users\Roger\Google Drive\ProyectoAngular\BackEnd\AssetMovementBackEnd\AssetMo
 C:\Users\Roger\Google Drive\ProyectoAngular\BackEnd\AssetMovementBackEnd\AssetMovementBackEnd\obj\Debug\AssetMovementBackEnd.dll
 C:\Users\Roger\Google Drive\ProyectoAngular\BackEnd\AssetMovementBackEnd\AssetMovementBackEnd\obj\Debug\AssetMovementBackEnd.pdb
 C:\Users\Roger\Google Drive\ProyectoAngular\BackEnd\AssetMovementBackEnd\AssetMovementBackEnd\bin\Swagger.Net.dll
-E:\Angular\ProyectoAngularJSPFCTI\DB_BackEnd\BackEnd\AssetMovementBackEnd\AssetMovementBackEnd\obj\Debug\AssetMovementBackEnd.csprojResolveAssemblyReference.cache
-E:\Angular\ProyectoAngularJSPFCTI\DB_BackEnd\BackEnd\AssetMovementBackEnd\AssetMovementBackEnd\obj\Debug\AssetMovementBackEnd.dll
-E:\Angular\ProyectoAngularJSPFCTI\DB_BackEnd\BackEnd\AssetMovementBackEnd\AssetMovementBackEnd\obj\Debug\AssetMovementBackEnd.pdb
 E:\Angular\ProyectoAngularJSPFCTI\DB_BackEnd\BackEnd\AssetMovementBackEnd\AssetMovementBackEnd\bin\ApplicationInsights.config
 E:\Angular\ProyectoAngularJSPFCTI\DB_BackEnd\BackEnd\AssetMovementBackEnd\AssetMovementBackEnd\bin\roslyn\csc.exe
 E:\Angular\ProyectoAngularJSPFCTI\DB_BackEnd\BackEnd\AssetMovementBackEnd\AssetMovementBackEnd\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -105,3 +102,5 @@ E:\Angular\ProyectoAngularJSPFCTI\DB_BackEnd\BackEnd\AssetMovementBackEnd\AssetM
 E:\Angular\ProyectoAngularJSPFCTI\DB_BackEnd\BackEnd\AssetMovementBackEnd\AssetMovementBackEnd\bin\System.Net.Http.Formatting.xml
 E:\Angular\ProyectoAngularJSPFCTI\DB_BackEnd\BackEnd\AssetMovementBackEnd\AssetMovementBackEnd\bin\System.Web.Http.xml
 E:\Angular\ProyectoAngularJSPFCTI\DB_BackEnd\BackEnd\AssetMovementBackEnd\AssetMovementBackEnd\bin\System.Web.Http.WebHost.xml
+E:\Angular\ProyectoAngularJSPFCTI\DB_BackEnd\BackEnd\AssetMovementBackEnd\AssetMovementBackEnd\obj\Debug\AssetMovementBackEnd.dll
+E:\Angular\ProyectoAngularJSPFCTI\DB_BackEnd\BackEnd\AssetMovementBackEnd\AssetMovementBackEnd\obj\Debug\AssetMovementBackEnd.pdb

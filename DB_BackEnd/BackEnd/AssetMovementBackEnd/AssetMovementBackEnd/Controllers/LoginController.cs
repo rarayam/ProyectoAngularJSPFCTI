@@ -16,11 +16,13 @@ namespace AssetMovementBackEnd.Controllers
 {
 
    public class UserAuthentication {
-        public string UserName { get; set; }        
+        public string UserName { get; set; }       
+        public string Password { get; set; }
         public bool SuccessAuthentication { get; set; }
 
-        public UserAuthentication(string pUserName, bool pSuccessAuthentication) {
+        public UserAuthentication(string pUserName, string pPassword, bool pSuccessAuthentication) {
             UserName = pUserName;
+            Password = pPassword;
             SuccessAuthentication = pSuccessAuthentication;
         }
 
@@ -30,31 +32,36 @@ namespace AssetMovementBackEnd.Controllers
     {
        
 
-        // GET: api/Login
+        // POST: api/Login
         [ResponseType(typeof(UserAuthentication))]
-        public IHttpActionResult GetLogin(string UserName, string Password)
+        public IHttpActionResult PostLogin(UserAuthentication pUserAuth)
         {
-            UserAuthentication userAuth = new UserAuthentication(UserName, false);
+            UserAuthentication userAuth = pUserAuth;
             try
             {
                 LdapConnection connection = new LdapConnection("tipfc.com");
-                NetworkCredential credential = new NetworkCredential(UserName, Password);
+                NetworkCredential credential = new NetworkCredential(pUserAuth.UserName, pUserAuth.Password);
                 connection.Credential = credential;
                 connection.Bind();
                 userAuth.SuccessAuthentication = true;
+                userAuth.Password = "*******";
+                
             }
             catch (LdapException)
             {
                 userAuth.SuccessAuthentication = false;
-            
+                userAuth.Password = "*******";
+
             }
             catch (Exception)
             {
                 userAuth.SuccessAuthentication = true;
             
-            }            
+            }
+            
 
-            return Ok(userAuth);
+            return CreatedAtRoute("DefaultApi", new { UserName = userAuth.UserName }, userAuth);
+            //return Ok(userAuth);
         }
 
 

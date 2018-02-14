@@ -7,7 +7,6 @@
       <Diagram DiagramId="75ee7fc132394056a5d7a914b7de2245" Name="Diagram1">
         <EntityTypeShape EntityType="AssetsManagerModel.ASSETBYUSER" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="AssetsManagerModel.ASSETMOVEMENT" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <AssociationConnector Association="AssetsManagerModel.ASSETMOVEMENT_ASSETBYUSER_FK1" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

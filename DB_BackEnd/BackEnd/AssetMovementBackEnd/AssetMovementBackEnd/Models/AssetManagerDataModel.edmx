@@ -31,30 +31,10 @@
           <Property Name="ACCESORIESDETAIL" Type="varchar2" MaxLength="50" />
           <Property Name="MOVEMENTREASON" Type="varchar2" MaxLength="200" />
           <Property Name="MOVEMENTDATE" Type="timestamp" Precision="6" Nullable="false" />
-        </EntityType>
-        <Association Name="ASSETMOVEMENT_ASSETBYUSER_FK1">
-          <End Role="ASSETBYUSER" Type="Self.ASSETBYUSER" Multiplicity="1" />
-          <End Role="ASSETMOVEMENT" Type="Self.ASSETMOVEMENT" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ASSETBYUSER">
-              <PropertyRef Name="ASSETNUMBER" />
-              <PropertyRef Name="ASSETIP" />
-              <PropertyRef Name="USERNAME" />
-            </Principal>
-            <Dependent Role="ASSETMOVEMENT">
-              <PropertyRef Name="ASSETNUMBER" />
-              <PropertyRef Name="ASSETIP" />
-              <PropertyRef Name="USERNAME" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
+        </EntityType>       
         <EntityContainer Name="AssetsManagerModelStoreContainer">
           <EntitySet Name="ASSETBYUSER" EntityType="Self.ASSETBYUSER" Schema="AM" store:Type="Tables" />
-          <EntitySet Name="ASSETMOVEMENT" EntityType="Self.ASSETMOVEMENT" Schema="AM" store:Type="Tables" />
-          <AssociationSet Name="ASSETMOVEMENT_ASSETBYUSER_FK1" Association="Self.ASSETMOVEMENT_ASSETBYUSER_FK1">
-            <End Role="ASSETBYUSER" EntitySet="ASSETBYUSER" />
-            <End Role="ASSETMOVEMENT" EntitySet="ASSETMOVEMENT" />
-          </AssociationSet>
+          <EntitySet Name="ASSETMOVEMENT" EntityType="Self.ASSETMOVEMENT" Schema="AM" store:Type="Tables" />          
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -74,7 +54,6 @@
           <Property Name="ASSETNUMBER" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ASSETIP" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ADDDATE" Type="DateTime" Precision="6" Nullable="false" />
-          <NavigationProperty Name="ASSETMOVEMENTs" Relationship="Self.ASSETMOVEMENT_ASSETBYUSER_FK1" FromRole="ASSETBYUSER" ToRole="ASSETMOVEMENT" />
         </EntityType>
         <EntityType Name="ASSETMOVEMENT">
           <Key>
@@ -88,31 +67,10 @@
           <Property Name="ACCESORIESDETAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="MOVEMENTREASON" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="MOVEMENTDATE" Type="DateTime" Precision="6" Nullable="false" />
-          <NavigationProperty Name="ASSETBYUSER" Relationship="Self.ASSETMOVEMENT_ASSETBYUSER_FK1" FromRole="ASSETMOVEMENT" ToRole="ASSETBYUSER" />
         </EntityType>
-        <Association Name="ASSETMOVEMENT_ASSETBYUSER_FK1">
-          <End Role="ASSETBYUSER" Type="Self.ASSETBYUSER" Multiplicity="1" />
-          <End Role="ASSETMOVEMENT" Type="Self.ASSETMOVEMENT" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ASSETBYUSER">
-              <PropertyRef Name="ASSETNUMBER" />
-              <PropertyRef Name="ASSETIP" />
-              <PropertyRef Name="USERNAME" />
-            </Principal>
-            <Dependent Role="ASSETMOVEMENT">
-              <PropertyRef Name="ASSETNUMBER" />
-              <PropertyRef Name="ASSETIP" />
-              <PropertyRef Name="USERNAME" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ASSETBYUSERs" EntityType="Self.ASSETBYUSER" />
           <EntitySet Name="ASSETMOVEMENTs" EntityType="Self.ASSETMOVEMENT" />
-          <AssociationSet Name="ASSETMOVEMENT_ASSETBYUSER_FK1" Association="Self.ASSETMOVEMENT_ASSETBYUSER_FK1">
-            <End Role="ASSETBYUSER" EntitySet="ASSETBYUSERs" />
-            <End Role="ASSETMOVEMENT" EntitySet="ASSETMOVEMENTs" />
-          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
