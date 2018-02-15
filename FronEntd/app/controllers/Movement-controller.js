@@ -48,7 +48,7 @@
         }
         
         $scope.Income = function (form) {
-            $http.delete(Config.HostServices + '/api/ASSETMOVEMENTs', $scope.Movements).then(
+            $http.put(Config.HostServices + '/api/ASSETMOVEMENTs', $scope.Movements).then(
                 function (response) {
                     //en caso exitoso
                     if (response.status == 200 || response.status == 204 ) {
