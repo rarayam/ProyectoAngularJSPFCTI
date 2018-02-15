@@ -17,15 +17,10 @@
                 controller: 'ResourceController',
                 auth: true
             }).when('/movement/Outcome', {
-                title: 'add',
-                templateUrl: 'app/views/Movement/OutcomeMovement.html',
-                controller: 'MovementController',
+                title: 'OutCome',
+                templateUrl: 'app/views/Movement/ListMovement.html',
+                controller: 'Movement-Controller',
                 auth: true            
-            }).when('/movement/Income', {
-                title: 'add',
-                templateUrl: 'app/views/Movement/IncomeMovement.html',
-                controller: 'MovementController',
-                auth: true
             }).
             otherwise({
                 redirecTo: '/'
