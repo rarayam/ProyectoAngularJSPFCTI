@@ -33,6 +33,8 @@
 
 
         $scope.Outcome = function (form) {
+            $scope.Movements.MOVEMENTTYPE = 'OUT';
+
             $http.post(Config.HostServices + '/api/ASSETMOVEMENTs', $scope.Movements).then(
                 function (response) {
                     //en caso exitoso
@@ -48,6 +50,7 @@
         }
         
         $scope.Income = function (form) {
+            $scope.Movements.MOVEMENTTYPE = 'IN';
             $http.put(Config.HostServices + '/api/ASSETMOVEMENTs', $scope.Movements).then(
                 function (response) {
                     //en caso exitoso
