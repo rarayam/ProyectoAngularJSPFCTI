@@ -11,6 +11,7 @@ using System.Web.Http.Description;
 using AssetMovementBackEnd.Models;
 using System.Security.Principal;
 using System.DirectoryServices.Protocols;
+using System.Web;
 
 namespace AssetMovementBackEnd.Controllers
 {
@@ -62,6 +63,32 @@ namespace AssetMovementBackEnd.Controllers
 
             return CreatedAtRoute("DefaultApi", new { UserName = userAuth.UserName }, userAuth);
             //return Ok(userAuth);
+        }
+
+        // GET: api/Ip
+        [ResponseType(typeof(string))]
+        public IHttpActionResult GetIP()
+        {
+            System.Net.Http.HttpRequestMessage request = this.Request;
+
+            if (request.Properties.ContainsKey("MS_HttpContext"))
+            {
+                var ctx = request.Properties["MS_HttpContext"] as HttpContextWrapper;
+                if (ctx != null)
+                {
+                    return Ok(ctx.Request.UserHostAddress);
+                    //do stuff with IP
+                }
+                else
+                {
+                    return NotFound();
+                }
+            }
+            else {
+                return NotFound();
+            }
+
+            
         }
 
 
