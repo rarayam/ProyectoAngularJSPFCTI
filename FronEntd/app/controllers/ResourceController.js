@@ -1,6 +1,8 @@
 ﻿app.controller('ResourceController', ['$scope', '$http', 'Config','IpData',
     function ($scope, $http, Config, IpData) {
+
         
+
         $scope.EmployeeCollection = [];
         $scope.UserInfo = {
             'UserName': localStorage.getItem('token'),
