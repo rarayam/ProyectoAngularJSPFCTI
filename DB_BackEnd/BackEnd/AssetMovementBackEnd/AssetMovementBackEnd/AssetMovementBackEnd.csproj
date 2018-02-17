@@ -167,6 +167,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ASSETBYUSERsController.cs" />
     <Compile Include="Controllers\ASSETMOVEMENTsController.cs" />
+    <Compile Include="Controllers\IpController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

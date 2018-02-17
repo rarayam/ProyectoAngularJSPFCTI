@@ -65,31 +65,6 @@ namespace AssetMovementBackEnd.Controllers
             //return Ok(userAuth);
         }
 
-        // GET: api/Ip
-        [ResponseType(typeof(string))]
-        public IHttpActionResult GetIP()
-        {
-            System.Net.Http.HttpRequestMessage request = this.Request;
-
-            if (request.Properties.ContainsKey("MS_HttpContext"))
-            {
-                var ctx = request.Properties["MS_HttpContext"] as HttpContextWrapper;
-                if (ctx != null)
-                {
-                    return Ok(ctx.Request.UserHostAddress);
-                    //do stuff with IP
-                }
-                else
-                {
-                    return NotFound();
-                }
-            }
-            else {
-                return NotFound();
-            }
-
-            
-        }
 
 
         protected override void Dispose(bool disposing)
