@@ -207,6 +207,7 @@
     <Content Include="Models\AssetManagerDataModel.edmx.diagram">
       <DependentUpon>AssetManagerDataModel.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
