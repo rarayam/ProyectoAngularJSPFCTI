@@ -1,7 +1,12 @@
-﻿app.controller('ResourceController', ['$scope','$http','Config',
-    function ($scope, $http, Config) {
+﻿app.controller('ResourceController', ['$scope', '$http', 'Config','IpData',
+    function ($scope, $http, Config, IpData) {
         
-        $scope.EmployeeCollection= [];
+        $scope.EmployeeCollection = [];
+        $scope.UserInfo = {
+            'UserName': localStorage.getItem('token'),
+            'UserIp': IpData.GetIp()
+        }
+      
 
         $scope.list = function () {
             $http.get(Config.HostServices + '/api/ASSETBYUSERs').then(
@@ -29,7 +34,8 @@
         }
 
 
-        $scope.add = function (form) {
+        $scope.add = function () {
+
             $http.post(Config.HostServices + '/api/ASSETBYUSERs', $scope.Employee).then(
                 function (response) {
                     //en caso exitoso
