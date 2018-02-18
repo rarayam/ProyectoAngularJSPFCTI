@@ -1,26 +1,27 @@
 ﻿app.service('IpData', ['$http','Config',
     function ($http, Config) {
-        this.GetIp = function () {
-            var Ip = 'No se pudo obtener, verifique conexión de red';
+        var IpInfo = {};
+
+        this.GetIp = function () {            
             $http.get(Config.HostServices + '/api/Ip').then(
                 function (response) {
-                    //en caso exitoso
-                    var status = response.status;
-                    console.log("apso por sdfse");
+                    //en caso exitoso                   
                     if (response.status == 200 && response.data) {
-                        console.log("anduvo yes2");                        
-                        Ip = response.data.Ip;
-                        console.log(Ip);
-                        return Ip;
+                        var IpData = response.data;
+                        IpInfo = { fn: IpData.Ip };
+                        console.log('Esto indica que el servicio si lo trajo: ' + IpInfo.fn);                        
                     }
                 }
             ), function (response) {
                 //en caso de error
                 alert('Error al consultar IP!');
-            }
-           
+                }
+
+            console.log('esto es lo que debería devolver - ' + IpInfo.fn + ' - si dice "undefined" entonces no se guardó');
+            return IpInfo;
         }
 
+        
 
     }
 ]);

@@ -5,9 +5,15 @@
 
         $scope.EmployeeCollection = [];
         $scope.UserInfo = {
+
             'UserName': localStorage.getItem('token'),
             'UserIp': IpData.GetIp()
-        }
+        };
+
+        $scope.UserInfo2 = {
+            'UserName': 'tome',
+            'UserIp': 'pal pinto'
+        };
       
 
         $scope.list = function () {
