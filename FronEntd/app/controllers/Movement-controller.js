@@ -1,7 +1,8 @@
-﻿app.controller('Movement-controller', ['$scope','$http','Config',
-    function ($scope, $http, Config) {
+﻿app.controller('Movement-controller', ['$scope','$http','Config','IpData',
+    function ($scope, $http, Config,IpData) {
         
         $scope.MovementsCollection= [];
+
 
         $scope.list = function () {
             $http.get(Config.HostServices + '/api/ASSETMOVEMENTs').then(
@@ -34,6 +35,8 @@
 
         $scope.Outcome = function (form) {
             $scope.Movements.MOVEMENTTYPE = 'OUT';
+            $scope.Movements.MOVEMENTDATE = Date.now();
+            $scope.Movements.ASSETIP =  IpData.GetIp();
 
             $http.post(Config.HostServices + '/api/ASSETMOVEMENTs', $scope.Movements).then(
                 function (response) {
@@ -51,6 +54,9 @@
         
         $scope.Income = function (form) {
             $scope.Movements.MOVEMENTTYPE = 'IN';
+            $scope.Movements.MOVEMENTDATE = Date.now();
+            $scope.Movements.ASSETIP = IpData.GetIp();
+
             $http.put(Config.HostServices + '/api/ASSETMOVEMENTs', $scope.Movements).then(
                 function (response) {
                     //en caso exitoso
