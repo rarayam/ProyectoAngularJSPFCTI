@@ -23,7 +23,7 @@
                 auth: true            
             }).
             otherwise({
-                redirecTo: '/'
+                redirecTo: '#!/'
             });
     }
 ])

@@ -1,20 +1,31 @@
 ﻿app.controller('ResourceController', ['$scope', '$http', 'Config','IpData',
     function ($scope, $http, Config, IpData) {
-
+        $scope.Employee = {};
+        $scope.EmployeeCollection = [];
+        $scope.userinfo = { fn: IpData.GetUserName()};
         
 
-        $scope.EmployeeCollection = [];
-        $scope.UserInfo = {
+        $scope.getIpInfo =  function () {
+            IpData.GetIp().then(
+                function (response) {
+                    if (response.status == 200 && response.data) {
+                        var IpData = response.data;
 
-            'UserName': localStorage.getItem('token'),
-            'UserIp': IpData.GetIp()
-        };
+                        $scope.Employee = {
+                            'USERCOMPNAME': '',
+                            'USERNAME': $scope.userinfo.fn,
+                            'USERPERSONALID': '',
+                            'ASSETIP': IpData.Ip,
+                            'USERSERVICEUNIT': '',
+                            'ASSETNUMBER': ''
+                        };                        
+                    }
+                }, function myError(response) {
+                    alert('Error al consultar IP! ');
+                });
+        }
 
-        $scope.UserInfo2 = {
-            'UserName': 'tome',
-            'UserIp': 'pal pinto'
-        };
-      
+        $scope.getIpInfo();
 
         $scope.list = function () {
             $http.get(Config.HostServices + '/api/ASSETBYUSERs').then(
@@ -48,14 +59,16 @@
                 function (response) {
                     //en caso exitoso
                     if (response.status == 200 || response.status == 204 ) {
-                        alert('Registro exitoso!');
+                        alert('Registro exitoso!');                       
+                        angular.element('#exampleModal').modal('hide');
                         window.location = '#!/add'
                     }
                 }
             ), function (response) {
                 //en caso de error
                 alert('Error registrando activo!');
-            }
+                }
+
         }
         
         $scope.remove = function (id,ResourceId) {
