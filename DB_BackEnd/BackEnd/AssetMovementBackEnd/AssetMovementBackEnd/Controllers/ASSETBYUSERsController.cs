@@ -104,6 +104,30 @@ namespace AssetMovementBackEnd.Controllers
         [ResponseType(typeof(ASSETBYUSER))]
         public IHttpActionResult DeleteASSETBYUSER(string id)
         {
+            var asset = (from s1 in db.ASSETBYUSERs
+                        where s1.ASSETNUMBER == id
+                        select s1).SingleOrDefault();
+            if (asset != null)
+            {
+
+                //Delete it from memory
+                db.ASSETBYUSERs.Remove(asset);
+                db.SaveChanges();
+
+                return Ok(asset);
+            }
+            else {
+                return NotFound();
+            }
+            /*var assetByUser = new ASSETBYUSER { ASSETNUMBER = id };
+            db.ASSETBYUSERs.Attach(assetByUser);
+            db.ASSETBYUSERs.Remove(assetByUser);
+            db.SaveChanges();
+
+            return Ok(assetByUser);*/
+
+
+            /*
             ASSETBYUSER aSSETBYUSER = db.ASSETBYUSERs.Find(id);
             if (aSSETBYUSER == null)
             {
@@ -113,7 +137,7 @@ namespace AssetMovementBackEnd.Controllers
             db.ASSETBYUSERs.Remove(aSSETBYUSER);
             db.SaveChanges();
 
-            return Ok(aSSETBYUSER);
+            return Ok(aSSETBYUSER);*/
         }
 
         protected override void Dispose(bool disposing)

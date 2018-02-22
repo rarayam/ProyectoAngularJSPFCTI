@@ -2,7 +2,9 @@
     function ($scope, $http, Config, IpData) {
         $scope.Employee = {};
         $scope.EmployeeCollection = [];
-        $scope.userinfo = { fn: IpData.GetUserName()};
+        $scope.userinfo = { fn: localStorage.getItem('token') };
+
+       
         
 
         $scope.getIpInfo =  function () {
@@ -28,6 +30,7 @@
         $scope.getIpInfo();
 
         $scope.list = function () {
+            $scope.EmployeeCollection = [];
             $http.get(Config.HostServices + '/api/ASSETBYUSERs').then(
                 function (response) {
                     //en caso exitoso
@@ -57,11 +60,11 @@
 
             $http.post(Config.HostServices + '/api/ASSETBYUSERs', $scope.Employee).then(
                 function (response) {
-                    //en caso exitoso
-                    if (response.status == 200 || response.status == 204 ) {
+                    //en caso exitoso                    
+                    if (response.status == 200 || response.status == 204 || response.status == 201) {
                         alert('Registro exitoso!');                       
                         angular.element('#exampleModal').modal('hide');
-                        window.location = '#!/add'
+                        $scope.list();
                     }
                 }
             ), function (response) {

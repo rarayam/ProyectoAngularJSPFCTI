@@ -19,9 +19,7 @@
                 if (response && (response.status == 201 || response.status == 200) && response.data) {
                     var result = response.data;
                     if (result.SuccessAuthentication) {
-                        localStorage.setItem('token', result.UserName);
-                        console.log('usuario obtenido: ' + result.UserName);
-                        IpData.SetUserName(result.UserName);
+                        localStorage.setItem('token', result.UserName);                                      
                         window.location = '#!/';
                     } else {
                         alert('Usuario o password inválido');
