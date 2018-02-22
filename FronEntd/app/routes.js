@@ -21,8 +21,12 @@
                 templateUrl: 'app/views/Movement/ListMovement.html',
                 controller: 'Movement-Controller',
                 auth: true            
-            }).
-            otherwise({
+            }).when('/addAsset', {
+                title: 'AddAsset',
+                templateUrl: 'app/views/addAsset.html',
+                controller: 'ResourceController',
+                auth: true
+            }).otherwise({
                 redirecTo: '#!/'
             });
     }

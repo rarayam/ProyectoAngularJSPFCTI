@@ -1,9 +1,14 @@
 ﻿<h1> PFCTI Activos </h1>
-<div class="form-group">
+<!--<div class="form-group">
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Asignar Activo
+        Assign Asset 
     </button>
+</div>-->
+
+<div class="form-group">
+    <a class="btn btn-primary" href="#!/addAsset">Asignarme un activo</a>
 </div>
+
 <table class="table table-bordered table-striped"  ng-init="list()">
     <thead>
         <tr>
@@ -22,7 +27,7 @@
             <td ng-bind="Employee.ServiceUnit"></td>
             <td ng-bind="Employee.ResourceId"></td>
             <td>
-                <button  type="button" class="btn btn-outline-danger btn-sm" ng-click="Remove(Employee.Id,Resource.Id)">Eliminar</button>
+                <button  type="button" class="btn btn-outline-danger btn-sm" ng-click="remove(Employee.ResourceId)">Eliminar</button>
             </td>
         </tr>
     </tbody>
@@ -30,46 +35,56 @@
 </table>
 
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!--<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <form class="modal-content" novalidate>
+        <div class="alert alert-danger"
+             ng-show="assetform.$submitted && assetform.$invalid">
+            Please provide the required information!
+        </div>
+        <form  name="assetform" id="assetform" novalidate ng-submit="add(assetform)" class="modal-content" ng-controller="ResourceController">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Agregar Activo</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body mod">                
+            <div class="modal-body mod valid-feedback">                
                  <div class="form-group">
                      <label>Nombre</label>
-                     <input type="text" class="form-control" ng-model="Employee.USERCOMPNAME">
+                     <input type="text" class="form-control" ng-model="Employee.USERCOMPNAME" name="fullname" required validate="assetform.fullname" />
+                        <div class="invalid-feedback" ng-show="assetform.fullname.$error.required">Required field.</div>
                  </div>
                  <div class="form-group">
                      <label>Usuario</label>
-                     <input type="text" class="form-control" ng-model="Employee.USERNAME" >
+                     <input type="text" class="form-control" ng-model="Employee.USERNAME" name="username" required validate="assetform.username" />
+                        <div class="invalid-feedback" ng-show="assetform.username.$error.required">Required field.</div>
                  </div>
                  <div class="form-group">
                      <label>Id</label>
-                     <input type="text" class="form-control" ng-model="Employee.USERPERSONALID">
+                     <input type="text" class="form-control" ng-model="Employee.USERPERSONALID" name="id" required validate="assetform.id" />
+                        <div class="invalid-feedback" ng-show="assetform.id.$error.required">Required field.</div>
                  </div>
                 
                  <div class="form-group">
                      <label>IP</label>
-                     <input type="text" class="form-control" ng-model="Employee.ASSETIP" >
+                     <input type="text" class="form-control" ng-model="Employee.ASSETIP" name="ip" required validate="assetform.ip" />
+                        <div class="invalid-feedback" ng-show="assetform.ip.$error.required">Required field.</div>
                  </div>
                  <div class="form-group">
                      <label>Unidad de Servicio</label>
-                     <input type="text" class="form-control" ng-model="Employee.USERSERVICEUNIT">
+                     <input type="text" class="form-control" ng-model="Employee.USERSERVICEUNIT" name="serviceUnit" required validate="assetform.serviceunit" />
+                        <div class="invalid-feedback" ng-show="assetform.serviceunit.$error.required">Required field.</div>
                  </div>
                  <div class="form-group">
                      <label>Número de activo</label>
-                     <input type="text" class="form-control" ng-model="Employee.ASSETNUMBER">
+                     <input type="text" class="form-control" ng-model="Employee.ASSETNUMBER" name="assetnumber" required validate="assetform.assetnumber" />
+                        <div class="invalid-feedback" ng-show="assetform.assetnumber.$error.required">Required field.</div>
                  </div>                
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary" ng-click="add()">Agregar activo</button>
+                <button type="submit" class="btn btn-primary">Agregar activo</button>
             </div>
         </form>
     </div>
-</div>
+</div>-->

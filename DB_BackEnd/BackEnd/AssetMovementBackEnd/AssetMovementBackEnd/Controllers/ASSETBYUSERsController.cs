@@ -119,25 +119,7 @@ namespace AssetMovementBackEnd.Controllers
             else {
                 return NotFound();
             }
-            /*var assetByUser = new ASSETBYUSER { ASSETNUMBER = id };
-            db.ASSETBYUSERs.Attach(assetByUser);
-            db.ASSETBYUSERs.Remove(assetByUser);
-            db.SaveChanges();
-
-            return Ok(assetByUser);*/
-
-
-            /*
-            ASSETBYUSER aSSETBYUSER = db.ASSETBYUSERs.Find(id);
-            if (aSSETBYUSER == null)
-            {
-                return NotFound();
-            }
-
-            db.ASSETBYUSERs.Remove(aSSETBYUSER);
-            db.SaveChanges();
-
-            return Ok(aSSETBYUSER);*/
+       
         }
 
         protected override void Dispose(bool disposing)

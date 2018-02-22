@@ -3,9 +3,7 @@
         $scope.Employee = {};
         $scope.EmployeeCollection = [];
         $scope.userinfo = { fn: localStorage.getItem('token') };
-
-       
-        
+               
 
         $scope.getIpInfo =  function () {
             IpData.GetIp().then(
@@ -37,14 +35,17 @@
                     if (response.status == 200 && response.data) {
                         var Resources = response.data;
                         for (var i = 0; i < Resources.length; i++) {
-                            var uEmployee = {
-                                Name: Resources[i].USERCOMPNAME,
-                                Id: Resources[i].USERPERSONALID,
-                                IP: Resources[i].ASSETIP,
-                                ServiceUnit: Resources[i].USERSERVICEUNIT,
-                                ResourceId: Resources[i].ASSETNUMBER
-                            };
-                            $scope.EmployeeCollection.push(uEmployee);
+                            if (Resources[i].USERNAME.toString() == $scope.userinfo.fn.toString()) {
+                                var uEmployee = {
+                                    Name: Resources[i].USERCOMPNAME,
+                                    Id: Resources[i].USERPERSONALID,
+                                    IP: Resources[i].ASSETIP,
+                                    ServiceUnit: Resources[i].USERSERVICEUNIT,
+                                    ResourceId: Resources[i].ASSETNUMBER
+                                };
+
+                                $scope.EmployeeCollection.push(uEmployee);
+                            }
                         }
                     }
                 }
@@ -56,15 +57,22 @@
         }
 
 
-        $scope.add = function () {
+        $scope.add = function (form) {
+            if (form.$invalid) {
+                //alert('Hay datos invalidos');
+                return;
+            }
+
 
             $http.post(Config.HostServices + '/api/ASSETBYUSERs', $scope.Employee).then(
                 function (response) {
-                    //en caso exitoso                    
-                    if (response.status == 200 || response.status == 204 || response.status == 201) {
-                        alert('Registro exitoso!');                       
-                        angular.element('#exampleModal').modal('hide');
-                        $scope.list();
+                    //en caso exitoso   
+                    if (response.status == 409) {
+                        alert('Por favor valide si ya tiene un activo registrado con esta información!');
+                    } else {
+                        if (response.status == 200 || response.status == 204 || response.status == 201) {
+                            window.location = '#!/add';
+                        }
                     }
                 }
             ), function (response) {
@@ -74,8 +82,21 @@
 
         }
         
-        $scope.remove = function (id,ResourceId) {
-            DataEmployee.remove(id);
+        $scope.remove = function (ResourceId) {
+
+            if (confirm('Esta seguro que desea borrar su registro para el activo ' + ResourceId + '?')) {
+                $http.delete(Config.HostServices + '/api/ASSETBYUSERs/' + ResourceId).then(
+                    function (response) {
+                        //en caso exitoso
+                        if (response.status == 200 && response.data) {
+                            $scope.list();
+                        }
+                    }
+                ), function (response) {
+                    //en caso de error
+                    alert('Error eliminando!');
+                }
+            }
         }
     }
 ])

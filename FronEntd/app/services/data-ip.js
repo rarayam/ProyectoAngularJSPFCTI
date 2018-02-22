@@ -11,8 +11,6 @@
         this.PostLogin = function (user) {
             return $http.post(Config.HostServices + '/api/Login', user);
         }
-
        
-
     }
 ]);

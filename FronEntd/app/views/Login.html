@@ -6,7 +6,7 @@
                 <form novalidate name="loginForm" ng-submit="login(loginForm)">
                     <div class="form-group">
                         <label>Usuario *</label>
-                        <input class="form-control" type="text" name="email" ng-model="user.userName" required validate="loginForm.username" />
+                        <input class="form-control" type="text" name="email" ng-model="user.userName" required validate="loginForm.email" />
                         <div class="invalid-feedback" ng-show="loginForm.email.$error.required">Required field.</div>
                        
                     </div>
