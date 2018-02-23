@@ -86,7 +86,7 @@
         $scope.remove = function (ResourceId, UserName, Ip) {
 
             if (confirm('Esta seguro que desea borrar su registro para el activo ' + ResourceId + '?')) {
-                $http.delete(Config.HostServices + '/api/ASSETBYUSERs/' + ResourceId + '?id2=' + UserName + '&id3=' + Ip).then(
+                $http.delete('http://localhost:50183' + '/api/ASSETBYUSERs/' + ResourceId + '?id2=' + UserName + '&id3=' + Ip).then(
                     function (response) {
                         //en caso exitoso
                         if (response.status == 200 && response.data) {
