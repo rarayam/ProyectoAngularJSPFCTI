@@ -24,30 +24,37 @@ namespace AssetMovementBackEnd.Controllers
 
         // GET: api/ASSETBYUSERs/5
         [ResponseType(typeof(ASSETBYUSER))]
-        public IHttpActionResult GetASSETBYUSER(string id)
+        public IHttpActionResult GetASSETBYUSER(string id, string id2, string id3)
         {
-            ASSETBYUSER aSSETBYUSER = db.ASSETBYUSERs.Find(id);
-            if (aSSETBYUSER == null)
+
+            var asset = (from s1 in db.ASSETBYUSERs
+                         where (s1.ASSETNUMBER == id
+                         && s1.USERNAME == id2
+                         && s1.ASSETIP == id3)
+                         select s1).SingleOrDefault();
+
+            if (asset == null)
             {
                 return NotFound();
             }
 
-            return Ok(aSSETBYUSER);
+            return Ok(asset);
         }
 
         // PUT: api/ASSETBYUSERs/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutASSETBYUSER(string id, ASSETBYUSER aSSETBYUSER)
+        public IHttpActionResult PutASSETBYUSER(string id, 
+            ASSETBYUSER aSSETBYUSER)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != aSSETBYUSER.USERNAME)
+            /*if (id != aSSETBYUSER.USERNAME)
             {
                 return BadRequest();
-            }
+            }*/
 
             db.Entry(aSSETBYUSER).State = EntityState.Modified;
 
@@ -57,14 +64,14 @@ namespace AssetMovementBackEnd.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ASSETBYUSERExists(id))
-                {
+                /*if (!ASSETBYUSERExists(id))
+                {*/
                     return NotFound();
-                }
+                /*}
                 else
                 {
                     throw;
-                }
+                }*/
             }
 
             return StatusCode(HttpStatusCode.NoContent);
@@ -79,7 +86,20 @@ namespace AssetMovementBackEnd.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.ASSETBYUSERs.Add(aSSETBYUSER);
+            var asset = (from s1 in db.ASSETBYUSERs
+                         where (s1.ASSETNUMBER == aSSETBYUSER.ASSETNUMBER 
+                         && s1.USERNAME == aSSETBYUSER.USERNAME
+                         && s1.ASSETIP == aSSETBYUSER.ASSETIP)
+                         select s1).SingleOrDefault();
+
+            if (asset != null)
+            {
+                throw new HttpResponseException(HttpStatusCode.NoContent);
+            }
+
+
+
+                db.ASSETBYUSERs.Add(aSSETBYUSER);
 
             try
             {
@@ -102,11 +122,15 @@ namespace AssetMovementBackEnd.Controllers
 
         // DELETE: api/ASSETBYUSERs/5
         [ResponseType(typeof(ASSETBYUSER))]
-        public IHttpActionResult DeleteASSETBYUSER(string id)
+        public IHttpActionResult DeleteASSETBYUSER(string id, string id2, string id3)
         {
+
             var asset = (from s1 in db.ASSETBYUSERs
-                        where s1.ASSETNUMBER == id
-                        select s1).SingleOrDefault();
+                         where (s1.ASSETNUMBER == id
+                         && s1.USERNAME == id2
+                         && s1.ASSETIP == id3)
+                         select s1).SingleOrDefault();
+
             if (asset != null)
             {
 

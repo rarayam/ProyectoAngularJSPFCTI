@@ -157,6 +157,5 @@ E:\Angular\ProyectoAngularJSPFCTI\DB_BackEnd\BackEnd\AssetMovementBackEnd\AssetM
 E:\Angular\ProyectoAngularJSPFCTI\DB_BackEnd\BackEnd\AssetMovementBackEnd\AssetMovementBackEnd\bin\System.Net.Http.Formatting.xml
 E:\Angular\ProyectoAngularJSPFCTI\DB_BackEnd\BackEnd\AssetMovementBackEnd\AssetMovementBackEnd\bin\System.Web.Http.xml
 E:\Angular\ProyectoAngularJSPFCTI\DB_BackEnd\BackEnd\AssetMovementBackEnd\AssetMovementBackEnd\bin\System.Web.Http.WebHost.xml
-E:\Angular\ProyectoAngularJSPFCTI\DB_BackEnd\BackEnd\AssetMovementBackEnd\AssetMovementBackEnd\obj\Debug\AssetMovementBackEnd.csprojResolveAssemblyReference.cache
 E:\Angular\ProyectoAngularJSPFCTI\DB_BackEnd\BackEnd\AssetMovementBackEnd\AssetMovementBackEnd\obj\Debug\AssetMovementBackEnd.dll
 E:\Angular\ProyectoAngularJSPFCTI\DB_BackEnd\BackEnd\AssetMovementBackEnd\AssetMovementBackEnd\obj\Debug\AssetMovementBackEnd.pdb

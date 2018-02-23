@@ -67,10 +67,10 @@
             $http.post(Config.HostServices + '/api/ASSETBYUSERs', $scope.Employee).then(
                 function (response) {
                     //en caso exitoso   
-                    if (response.status == 409) {
+                    if (response.status == 204) {
                         alert('Por favor valide si ya tiene un activo registrado con esta información!');
                     } else {
-                        if (response.status == 200 || response.status == 204 || response.status == 201) {
+                        if (response.status == 201) {
                             window.location = '#!/add';
                         }
                     }
