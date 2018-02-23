@@ -38,6 +38,7 @@
                             if (Resources[i].USERNAME.toString() == $scope.userinfo.fn.toString()) {
                                 var uEmployee = {
                                     Name: Resources[i].USERCOMPNAME,
+                                    UserName: Resources[i].USERNAME,
                                     Id: Resources[i].USERPERSONALID,
                                     IP: Resources[i].ASSETIP,
                                     ServiceUnit: Resources[i].USERSERVICEUNIT,
@@ -82,10 +83,10 @@
 
         }
         
-        $scope.remove = function (ResourceId) {
+        $scope.remove = function (ResourceId, UserName, Ip) {
 
             if (confirm('Esta seguro que desea borrar su registro para el activo ' + ResourceId + '?')) {
-                $http.delete(Config.HostServices + '/api/ASSETBYUSERs/' + ResourceId).then(
+                $http.delete(Config.HostServices + '/api/ASSETBYUSERs/' + ResourceId + '?id2=' + UserName + '&id3=' + Ip).then(
                     function (response) {
                         //en caso exitoso
                         if (response.status == 200 && response.data) {

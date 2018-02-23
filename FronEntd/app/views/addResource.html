@@ -22,12 +22,13 @@
     <tbody>
         <tr ng-repeat="Employee in EmployeeCollection">
             <td ng-bind="Employee.Name"></td>
+            <td ng-bind="Employee.UserName"></td>
             <td ng-bind="Employee.Id"></td>
             <td ng-bind="Employee.IP"></td>
             <td ng-bind="Employee.ServiceUnit"></td>
             <td ng-bind="Employee.ResourceId"></td>
             <td>
-                <button  type="button" class="btn btn-outline-danger btn-sm" ng-click="remove(Employee.ResourceId)">Eliminar</button>
+                <button  type="button" class="btn btn-outline-danger btn-sm" ng-click="remove(Employee.ResourceId,Employee.UserName,Employee.IP)">Eliminar</button>
             </td>
         </tr>
     </tbody>
