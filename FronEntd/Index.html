@@ -22,8 +22,14 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#!/add">Mantenimiento Recursos</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#!/movement/Outcome">Movimientos</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Registro de movimientos
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Registrar Salida</a>
+                            <a class="dropdown-item" href="#">Registrar Entrada</a>
+                        </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#!/login">Salir</a>
@@ -47,6 +53,7 @@
     <script type="text/javascript" src="app/app.js"></script>
     <script type="text/javascript" src="app/routes.js"></script>
     <script type="text/javascript" src="app/config.js"></script>
+    <script type="text/javascript" src="app/models/AssetByUserInfo.js"></script>
     <script type="text/javascript" src="app/services/data-employee.js"></script>
     <script type="text/javascript" src="app/services/data-ip.js"></script>
 

@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using AssetMovementBackEnd.Models;
+using System.Data.Entity.Migrations;
 
 namespace AssetMovementBackEnd.Controllers
 {
@@ -49,12 +50,7 @@ namespace AssetMovementBackEnd.Controllers
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
-            }
-
-            /*if (id != aSSETBYUSER.USERNAME)
-            {
-                return BadRequest();
-            }*/
+            }          
 
             db.Entry(aSSETBYUSER).State = EntityState.Modified;
 
@@ -64,17 +60,17 @@ namespace AssetMovementBackEnd.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                /*if (!ASSETBYUSERExists(id))
-                {*/
+                if (!ASSETBYUSERExists(id))
+                {
                     return NotFound();
-                /*}
+                }
                 else
                 {
                     throw;
-                }*/
+                }
             }
 
-            return StatusCode(HttpStatusCode.NoContent);
+            return StatusCode(HttpStatusCode.NoContent);           
         }
 
         // POST: api/ASSETBYUSERs

@@ -56,7 +56,7 @@ namespace AssetMovementBackEnd.Controllers
             }
             catch (Exception)
             {
-                userAuth.SuccessAuthentication = true;
+                userAuth.SuccessAuthentication = false;
             
             }
             

@@ -22,14 +22,17 @@
     </thead>
     <tbody>
         <tr ng-repeat="Employee in EmployeeCollection">
-            <td ng-bind="Employee.Name"></td>
-            <td ng-bind="Employee.UserName"></td>
-            <td ng-bind="Employee.Id"></td>
-            <td ng-bind="Employee.IP"></td>
-            <td ng-bind="Employee.ServiceUnit"></td>
-            <td ng-bind="Employee.ResourceId"></td>
+            <td ng-bind="Employee.USERCOMPNAME"></td>
+            <td ng-bind="Employee.USERNAME"></td>
+            <td ng-bind="Employee.USERPERSONALID"></td>
+            <td ng-bind="Employee.ASSETIP"></td>
+            <td ng-bind="Employee.USERSERVICEUNIT"></td>
+            <td ng-bind="Employee.ASSETNUMBER"></td>            
             <td>
-                <button  type="button" class="btn btn-outline-danger btn-sm" ng-click="remove(Employee.ResourceId,Employee.UserName,Employee.IP)">Eliminar</button>
+                <button type="button" class="btn btn-outline-warning btn-sm" ng-click="openEdit(Employee.ASSETNUMBER)">Editar</button>
+            </td>
+            <td>
+                <button type="button" class="btn btn-outline-danger btn-sm" ng-click="remove(Employee.ASSETNUMBER,Employee.USERNAME,Employee.ASSETIP)">Eliminar</button>
             </td>
         </tr>
     </tbody>

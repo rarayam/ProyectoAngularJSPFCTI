@@ -4,7 +4,7 @@
    
         //aca se llama al servicio web, la promesa se manipula en el controlador
         this.GetIp =  function () {
-            return  $http.get(Config.HostServices + "/api/Ip");
+            return  $http.get(Config.HostServicesIp + "/api/Ip");
         }
 
         //aca se llama al servicio web, la promesa se manipula en el controlador

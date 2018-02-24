@@ -1,0 +1,51 @@
+﻿<h1 class="py-3">Editar Activo PFCTI</h1>
+<div class="row">
+    <div class="col-xs-12 col-md-6">
+        <div class="alert alert-danger"
+             ng-show="assetform.$submitted && assetform.$invalid">
+            Por favor ingrese los campos requeridos!
+        </div>
+        <form name="assetform" id="assetform" novalidate ng-submit="edit(assetform)" >               
+            <div class="form-group">
+                    <label>Nombre</label>
+                    <input type="text" class="form-control" ng-model="Employee.USERCOMPNAME" name="fullname" required validate="assetform.fullname" />
+                    <div class="invalid-feedback" ng-show="assetform.fullname.$error.required">Required field.</div>
+                </div>
+            <div class="form-group">
+                    <label>Usuario</label>
+                    <input type="text" readonly class="form-control" ng-model="Employee.USERNAME" name="username" required validate="assetform.username" />
+                    <div class="invalid-feedback" ng-show="assetform.username.$error.required">Required field.</div>
+                </div>
+            <div class="form-group">
+                    <label>Id</label>
+                    <input type="text" class="form-control" ng-model="Employee.USERPERSONALID" name="id" required validate="assetform.id" />
+                    <div class="invalid-feedback" ng-show="assetform.id.$error.required">Required field.</div>
+                </div>
+            <div class="form-group">
+                    <label>IP</label>
+                    <input type="text" readonly class="form-control" ng-model="Employee.ASSETIP" name="ip" required validate="assetform.ip" />
+                    <div class="invalid-feedback" ng-show="assetform.ip.$error.required">Required field.</div>
+                </div>
+            <div class="form-group">
+                    <label>Unidad de Servicio</label>
+                    <input type="text" class="form-control" ng-model="Employee.USERSERVICEUNIT" name="serviceUnit" required validate="assetform.serviceunit" />
+                    <div class="invalid-feedback" ng-show="assetform.serviceunit.$error.required">Required field.</div>
+                </div>
+            <div class="form-group">
+                    <label>Número de activo</label>
+                    <input type="text" class="form-control" readonly ng-model="Employee.ASSETNUMBER" name="assetnumber" required validate="assetform.assetnumber" />
+                    <div class="invalid-feedback" ng-show="assetform.assetnumber.$error.required">Required field.</div>
+                </div>
+        
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">
+                    Guardar
+                </button>
+                <a class="btn btn-secondary"  ng-click="backFromEdit()">
+                    Volver
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+

@@ -16,6 +16,11 @@
                 templateUrl: 'app/views/addResource.html',
                 controller: 'ResourceController',
                 auth: true
+            }).when('/edit', {
+                title: 'edit',
+                templateUrl: 'app/views/EditAsset.html',
+                controller: 'ResourceController',
+                auth: true
             }).when('/movement/Outcome', {
                 title: 'OutCome',
                 templateUrl: 'app/views/Movement/ListMovement.html',
