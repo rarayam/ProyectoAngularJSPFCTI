@@ -23,9 +23,14 @@
                 auth: true
             }).when('/movement/Outcome', {
                 title: 'OutCome',
-                templateUrl: 'app/views/Movement/ListMovement.html',
+                templateUrl: 'app/views/Movement/AddOut.html',
                 controller: 'Movement-Controller',
                 auth: true            
+            }).when('/movement/Income', {
+                title: 'InCome',
+                templateUrl: 'app/views/Movement/AddIn.html',
+                controller: 'Movement-Controller',
+                auth: true
             }).when('/addAsset', {
                 title: 'AddAsset',
                 templateUrl: 'app/views/addAsset.html',

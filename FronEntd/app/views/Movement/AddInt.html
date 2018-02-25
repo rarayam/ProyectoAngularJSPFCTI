@@ -1,0 +1,39 @@
+﻿<h1> PFCTI - Registar Entrada </h1>
+<div class="row">
+    <div class="col-xs-12 col-md-6">
+        <div class="alert alert-danger"
+             ng-show="assetInform.$submitted && assetInform.$invalid">
+            Por favor ingrese los campos requeridos!
+        </div>
+        <form  name="assetInform" id="assetInform" novalidate ng-submit="Income(assetInform)">
+                                  
+            <div class="form-group">
+                <label>Usuario</label>
+                <input type="text" class="form-control" readonly ng-model="Movement.USERNAME" name="USERNAME" required validate="assetInform.USERNAME" />
+                <div class="invalid-feedback" ng-show="assetInform.USERNAME.$error.required">Required field.</div>
+            </div>
+
+            <div class="form-group">
+                <label>Ip actual</label>
+                <input type="text" class="form-control" readonly ng-model="Movement.ASSETIP" name="ASSETIP" required validate="assetInform.ASSETIP" />
+                <div class="invalid-feedback" ng-show="assetInform.ASSETIP.$error.required">Required field.</div>
+            </div>
+
+            <div class="form-group">
+                <label>Número de activo</label>
+                <input type="text" class="form-control" ng-model="Movement.ASSETNUMBER" name="ASSETNUMBER" required validate="assetInform.ASSETNUMBER" />
+                <div class="invalid-feedback" ng-show="assetInform.ASSETNUMBER.$error.required">Required field.</div>
+            </div>
+
+
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">
+                    Registrar entrada
+                </button>
+                <a class="btn btn-secondary" href="#!/add">
+                    Volver
+                </a>
+            </div>
+        </form>
+    </div>
+</div>

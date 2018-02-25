@@ -1,0 +1,50 @@
+﻿<h1> PFCTI - Registar salida </h1>
+<div class="row">
+    <div class="col-xs-12 col-md-6">
+        <div class="alert alert-danger"
+             ng-show="assetOutForm.$submitted && assetOutForm.$invalid">
+            Por favor ingrese los campos requeridos!
+        </div>
+        <form name="assetOutForm" id="assetOutForm" novalidate ng-submit="Outcome(assetOutForm)">
+                      
+            <div class="form-group">
+                <label>Usuario</label>
+                <input type="text" class="form-control" readonly ng-model="Movement.USERNAME" name="USERNAME" required validate="assetOutForm.USERNAME" />
+                <div class="invalid-feedback" ng-show="assetOutForm.USERNAME.$error.required">Required field.</div>
+            </div>
+
+            <div class="form-group">
+                <label>Ip actual</label>
+                <input type="text" class="form-control" readonly ng-model="Movement.ASSETIP" name="ASSETIP" required validate="assetOutForm.ASSETIP" />
+                <div class="invalid-feedback" ng-show="assetOutForm.ASSETIP.$error.required">Required field.</div>
+            </div>
+
+            <div class="form-group">
+                <label>Número de activo</label>
+                <input type="text" class="form-control" ng-model="Movement.ASSETNUMBER" name="ASSETNUMBER" required validate="assetOutForm.ASSETNUMBER" />
+                <div class="invalid-feedback" ng-show="assetOutForm.ASSETNUMBER.$error.required">Required field.</div>
+            </div>
+
+            <div class="form-group">
+                <label>Accesorios</label>
+                <input type="text" class="form-control" ng-model="Movement.ACCESORIESDETAIL" name="ACCESORIESDETAIL" required validate="assetOutForm.ACCESORIESDETAIL" />
+                <div class="invalid-feedback" ng-show="assetOutForm.ACCESORIESDETAIL.$error.required">Required field.</div>
+            </div>
+
+            <div class="form-group">
+                <label>Justificación</label>
+                <input type="text" class="form-control" ng-model="Movement.MOVEMENTREASON" name="MOVEMENTREASON" required validate="assetOutForm.MOVEMENTREASON" />
+                <div class="invalid-feedback" ng-show="assetOutForm.MOVEMENTREASON.$error.required">Required field.</div>
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">
+                    Registrar entrada
+                </button>
+                <a class="btn btn-secondary" href="#!/add">
+                    Volver
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
