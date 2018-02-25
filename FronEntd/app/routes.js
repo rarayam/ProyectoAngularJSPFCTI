@@ -24,12 +24,17 @@
             }).when('/movement/Outcome', {
                 title: 'OutCome',
                 templateUrl: 'app/views/Movement/AddOut.html',
-                controller: 'Movement-Controller',
+                controller: 'MovementController',
                 auth: true            
             }).when('/movement/Income', {
                 title: 'InCome',
-                templateUrl: 'app/views/Movement/AddIn.html',
-                controller: 'Movement-Controller',
+                templateUrl: 'app/views/Movement/AddInt.html',
+                controller: 'MovementController',
+                auth: true
+            }).when('/movement/list', {
+                title: 'ListMovement',
+                templateUrl: 'app/views/Movement/ListMovement.html',
+                controller: 'MovementController',
                 auth: true
             }).when('/addAsset', {
                 title: 'AddAsset',

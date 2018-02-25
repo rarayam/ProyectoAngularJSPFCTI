@@ -99,6 +99,8 @@
                         //en caso exitoso
                         if (response.status == 200 && response.data) {
                             $scope.list();
+                        } else {
+                            alert('No es posible eliminar este registro, revise si  el activo tiene movimientos registrados!');
                         }
                     }                    
                 ), function (response) {

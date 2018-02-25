@@ -127,7 +127,13 @@ namespace AssetMovementBackEnd.Controllers
                          && s1.ASSETIP == id3)
                          select s1).SingleOrDefault();
 
-            if (asset != null)
+            var movements = (from s1 in db.ASSETMOVEMENTs
+                         where (s1.ASSETNUMBER == id
+                         && s1.USERNAME == id2
+                         && s1.ASSETIP == id3)
+                         select s1).FirstOrDefault();
+
+            if ((asset != null) && (movements == null))
             {
 
                 //Delete it from memory
@@ -137,7 +143,7 @@ namespace AssetMovementBackEnd.Controllers
                 return Ok(asset);
             }
             else {
-                return NotFound();
+                return StatusCode(HttpStatusCode.NoContent);
             }
        
         }

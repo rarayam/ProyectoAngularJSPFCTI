@@ -1,4 +1,4 @@
-﻿app.controller('Movement-controller', ['$scope','$http','Config','IpData','MovementData',
+﻿app.controller('MovementController', ['$scope', '$http', 'Config', 'IpData', 'MovementData',
     function ($scope, $http, Config, IpData, MovementData) {
         $scope.Movement = {};
         $scope.MovementsCollection= [];
@@ -14,13 +14,13 @@
                             var IpData = response.data;
 
                             $scope.Movement = {
-                                'MOVEMENTID': Resources[i].MOVEMENTID,
-                                'ASSETNUMBER': Resources[i].ASSETNUMBER,
+                                'MOVEMENTID': 0,
+                                'ASSETNUMBER': '',
                                 'ASSETIP': IpData.Ip,
                                 'USERNAME': $scope.userinfo.fn,
                                 'MOVEMENTTYPE': '',
-                                'ACCESORIESDETAIL': 'N/A',
-                                'MOVEMENTREASON': 'N/A',
+                                'ACCESORIESDETAIL': '',
+                                'MOVEMENTREASON': '',
                                 'MOVEMENTDATE': ''
                             };
                         }
@@ -37,9 +37,9 @@
                 function (response) {
                     //en caso exitoso
                     if (response.status == 200 && response.data) {
-                        var Resources = response.data;
-                        if (Resources[i].USERNAME.toString() == $scope.userinfo.fn.toString()) {
-                            for (var i = 0; i < Resources.length; i++) {
+                        var Resources = response.data;                       
+                        for (var i = 0; i < Resources.length; i++) {
+                            if (Resources[i].USERNAME.toString() == $scope.userinfo.fn.toString()) {
                                 var uMovements = {
                                     MOVEMENTID: Resources[i].MOVEMENTID,
                                     ASSETNUMBER: Resources[i].ASSETNUMBER,
@@ -69,7 +69,7 @@
             }
 
             $scope.Movement.MOVEMENTTYPE = 'OUT';
-            $scope.Movement.MOVEMENTDATE = Date.now();
+            $scope.Movement.MOVEMENTDATE =  '01/01/2018';
 
             MovementData.PostMovement($scope.Movement).then(
                 function (response) {
@@ -77,7 +77,7 @@
                     if (response.status == 200 || response.data) {
                         if (response.data.ResponseOK == '1') {
                             alert('Registro de salida exitosa!');
-                            window.location = '#!/home'
+                            window.location = '#!/'
                         } else {
                             alert(response.data.ResultMessage);
                         }
@@ -85,7 +85,7 @@
                 }
             ), function (response) {
                 //en caso de error
-                alert('Error registrando movimientos!');
+                alert('Error registrando salida de activo!');
             }
         }
         
@@ -94,8 +94,10 @@
                 return;
             }
 
-            $scope.Movements.MOVEMENTTYPE = 'IN';
-            $scope.Movements.MOVEMENTDATE = Date.now();            
+            $scope.Movement.MOVEMENTTYPE = 'IN';
+            $scope.Movement.MOVEMENTDATE = '01/01/2018';
+            $scope.Movement.ACCESORIESDETAIL = 'N/A';
+            $scope.Movement.MOVEMENTREASON = 'N/A';
 
             MovementData.PostMovement($scope.Movement).then(
                 function (response) {
@@ -103,7 +105,7 @@
                     if (response.status == 200 || response.data) {
                         if (response.data.ResponseOK == '1') {
                             alert('Registro de entrada exitosa!');
-                            window.location = '#!/home'
+                            window.location = '#!/'
                         } else {
                             alert(response.data.ResultMessage);
                         }
@@ -111,7 +113,7 @@
                 }
             ), function (response) {
                 //en caso de error
-                alert('Error registrando activo movimientos!');
+                alert('Error registrando entrada de activo!');
             }
         }
     }

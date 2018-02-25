@@ -1,131 +1,28 @@
-﻿<h1> PFCTI Movimientos </h1>
+﻿<h1> PFCTI Movimiento de activos</h1>
 <div class="form-group">
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">
-        Regisrar salida
-    </button>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModified">
-        Regisrar entrada
-    </button>
+   
 </div>
 <table class="table table-bordered table-striped"  ng-init="list()">
     <thead>
-        <tr>
-            <th>Identificación del movimiento</th>
+        <tr>            
             <th>Número de activo</th>
             <th>IP</th>
-            <th>Usuario</th>
             <th>Tipo de Movimiento</th>
-            <th>Detalle</th>
+            <th>Accesorios</th>
             <th>Justificación</th>
             <th>Fecha</th>
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="Movements in MovementsCollection">
-            <td ng-bind="Movements.MOVEMENTID"></td>
+        <tr ng-repeat="Movements in MovementsCollection">            
             <td ng-bind="Movements.ASSETNUMBER"></td>
             <td ng-bind="Movements.ASSETIP"></td>
-            <td ng-bind="Movements.USERNAME"></td>
             <td ng-bind="Movements.MOVEMENTTYPE"></td>
             <td ng-bind="Movements.ACCESORIESDETAIL"></td>
             <td ng-bind="Movements.MOVEMENTREASON"></td>
-            <td ng-bind="Movements.MOVEMENTDATE"></td>
-
-         
+            <td ng-bind="Movements.MOVEMENTDATE | date:'dd/MM/yyyy hh:mm'"></td>         
         </tr>
     </tbody>
 
 </table>
 
-
-<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <form class="modal-content" novalidate>
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Registro de Salida</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label>Identificación del movimiento</label>
-                    <input type="text" class="form-control" ng-model="Movements.MOVEMENTID">
-                </div>
-                <div class="form-group">
-                    <label>Número de activo</label>
-                    <input type="text" class="form-control" ng-model="Movements.ASSETNUMBER">
-                </div>
-                
-                <div class="form-group">
-                    <label>Usuario</label>
-                    <input type="text" class="form-control" ng-model="Movements.USERNAME">
-                </div>
-               
-
-
-                <div class="form-group">
-                    <label>Detalle</label>
-                    <input type="text" class="form-control" ng-model="Movements.ACCESORIESDETAIL">
-                </div>
-
-                <div class="form-group">
-                    <label>Justificación</label>
-                    <input type="text" class="form-control" ng-model="Movements.MOVEMENTREASON">
-                </div>
-
-               
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary" ng-click="OutCome()">Salvar Cambios</button>
-            </div>
-        </form>
-    </div>
-</div>
-
-
-<div class="modal fade" id="addModified" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <form class="modal-content" novalidate>
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Registor de entrada</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label>Identificación del movimiento</label>
-                    <input type="text" class="form-control" ng-model="Movements.MOVEMENTID">
-                </div>
-                <div class="form-group">
-                    <label>Número de activo</label>
-                    <input type="text" class="form-control" ng-model="Movements.ASSETNUMBER">
-                </div>
-               
-                <div class="form-group">
-                    <label>Usuario</label>
-                    <input type="text" class="form-control" ng-model="Movements.USERNAME">
-                </div>
-               
-
-                <div class="form-group">
-                    <label>Detalle</label>
-                    <input type="text" class="form-control" ng-model="Movements.ACCESORIESDETAIL">
-                </div>
-
-                <div class="form-group">
-                    <label>Justificación</label>
-                    <input type="text" class="form-control" ng-model="Movements.MOVEMENTREASON">
-                </div>
-
-              
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary" ng-click="InCome()">Salvar Cambios</button>
-            </div>
-        </form>
-    </div>
-</div>

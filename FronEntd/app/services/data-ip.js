@@ -9,7 +9,7 @@
 
         //aca se llama al servicio web, la promesa se manipula en el controlador
         this.PostLogin = function (user) {
-            return $http.post(Config.HostServices + '/api/Login', user);
+            return $http.post(Config.HostServicesIp + '/api/Login', user);
         }
        
     }

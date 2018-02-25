@@ -82,6 +82,7 @@ namespace AssetMovementBackEnd.Controllers
         {
             Boolean isOK = true;
             MovementResponse response = new MovementResponse();
+            aSSETMOVEMENT.MOVEMENTDATE = DateTime.Now;
 
             if (!ModelState.IsValid)
             {
@@ -92,7 +93,7 @@ namespace AssetMovementBackEnd.Controllers
             var asset = (from s1 in db.ASSETBYUSERs
                          where (s1.ASSETNUMBER == aSSETMOVEMENT.ASSETNUMBER
                          && s1.USERNAME == aSSETMOVEMENT.USERNAME
-                         && s1.ASSETIP == aSSETMOVEMENT.ASSETIP)
+                         && s1.ASSETIP == aSSETMOVEMENT.ASSETIP)                         
                          select s1).SingleOrDefault();
 
             if (asset == null)
@@ -107,7 +108,7 @@ namespace AssetMovementBackEnd.Controllers
                              where (s1.ASSETNUMBER == aSSETMOVEMENT.ASSETNUMBER
                              && s1.USERNAME == aSSETMOVEMENT.USERNAME
                              && s1.ASSETIP == aSSETMOVEMENT.ASSETIP)
-                             orderby aSSETMOVEMENT.MOVEMENTDATE descending
+                             orderby s1.MOVEMENTDATE descending
                              select s1).FirstOrDefault();
 
                 if (aSSETMOVEMENT.MOVEMENTTYPE.Equals("OUT")) //Si es una salida

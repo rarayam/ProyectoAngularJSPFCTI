@@ -17,6 +17,9 @@
             IpData.PostLogin($scope.user).then(function (response) {
                 if (response && (response.status == 201 || response.status == 200) && response.data) {
                     var result = response.data;
+                    console.log('1: ' + result.UserName);
+                    console.log('2: ' + result.Password);
+                    console.log('3: ' + result.SuccessAuthentication);
                     if (result.SuccessAuthentication) {
                         localStorage.setItem('token', result.UserName);                                      
                         window.location = '#!/';
